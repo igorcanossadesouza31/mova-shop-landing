@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <title>Mova Shop Promos — Grupo VIP no WhatsApp</title>
-<meta name="description" content="Entre no Grupo VIP 100% gratuito e receba as melhores promoções e cupons de suplementos e roupas fitness direto no seu WhatsApp. +100 mil membros.">
+<meta name="description" content="Entre no Grupo VIP 100% gratuito e receba as melhores promoções de suplementos e roupas fitness direto no seu WhatsApp. +100 mil membros.">
 <meta name="robots" content="noindex, follow">
 
 <!-- Open Graph / compartilhamento em anúncios -->
@@ -51,33 +51,60 @@
     inset:0;
     width:100%;
     height:100%;
-    object-fit:cover;
+    /* 'contain' garante que a parte de baixo da imagem (onde fica o
+       ENTRAR NO GRUPO) NÃO seja cortada. Fica uma pequena borda preta
+       em cima/embaixo em telas muito diferentes, mas o botão sempre aparece. */
+    object-fit:contain;
     object-position:center;
     display:block;
   }
-  .tap-hint{
+
+  /* ===== BOTÃO REAL EM HTML, POR CIMA DA IMAGEM ===== */
+  /* Fica maior e mais pra cima do que a borda antiga. */
+  .cta-btn{
     position:absolute;
-    left:8%;
-    right:8%;
-    top:94.4%;
-    height:4.8%;
-    border-radius:14px;
-    pointer-events:none;
+    left:5%;
+    right:5%;
+    bottom:9%;                 /* mais pra cima (antes ~0%) */
+    height:8.5%;               /* bem maior */
+    min-height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    background:#25D366;
+    color:#062b14;
+    font-weight:800;
+    font-size:clamp(20px, 5.5vw, 30px);
+    letter-spacing:.5px;
+    text-decoration:none;
+    border-radius:18px;
+    box-shadow:0 8px 24px rgba(0,0,0,.45);
     animation:pulse 1.7s ease-in-out infinite;
   }
-  @keyframes pulse{
-    0%,100%{ box-shadow:0 0 0 2px rgba(245,197,24,.85), 0 0 18px 4px rgba(245,197,24,.45); }
-    50%{ box-shadow:0 0 0 3px rgba(245,197,24,1), 0 0 30px 10px rgba(245,197,24,.7); }
+  .cta-btn .wa-dot{
+    width:34px;height:34px;border-radius:50%;
+    background:#062b14;flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;
   }
+  .cta-btn .wa-dot span{
+    width:6px;height:6px;border-radius:50%;background:#25D366;
+    box-shadow:-10px 0 0 #25D366, 10px 0 0 #25D366;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1);   box-shadow:0 8px 24px rgba(0,0,0,.45), 0 0 0 0 rgba(37,211,102,.55); }
+    50%    { transform:scale(1.02);box-shadow:0 8px 24px rgba(0,0,0,.45), 0 0 26px 8px rgba(37,211,102,.55); }
+  }
+
   footer{
     position:absolute;
     left:0;
     right:0;
     bottom:env(safe-area-inset-bottom, 0);
     text-align:center;
-    padding:4px 10px 6px;
-    font-size:.62rem;
-    color:rgba(255,255,255,.4);
+    padding:3px 10px 5px;
+    font-size:.58rem;
+    color:rgba(255,255,255,.35);
     pointer-events:none;
   }
 </style>
@@ -86,26 +113,23 @@
 
 <div class="stage">
   <a class="hero-link" href="https://chat.whatsapp.com/C32VXb5tYgv74zOPOmV2eF" target="_blank" rel="noopener" id="hero-click">
-    <img src="assets/promo-mova-shop-v4.jpg" alt="Mova Shop Promos — Grupo VIP 100% gratuito. Ofertas com 50%, 60%, 70% OFF em suplementos e roupas fitness. Toque para entrar no grupo do WhatsApp." fetchpriority="high">
-    <div class="tap-hint"></div>
+    <img src="assets/promo-mova-shop-v4.jpg" alt="Mova Shop Promos — Grupo VIP 100% gratuito. Ofertas com 50%, 60%, 70% OFF em suplementos e roupas fitness." fetchpriority="high">
   </a>
-  <footer>© Mova Shop Promos · Ofertas de terceiros via link de afiliado</footer>
+
+  <!-- Botão real, grande e clicável, por cima da imagem -->
+  <a class="cta-btn" href="https://chat.whatsapp.com/C32VXb5tYgv74zOPOmV2eF" target="_blank" rel="noopener" id="hero-click-2">
+    <span class="wa-dot"><span></span></span>
+    ENTRAR NO GRUPO
+  </a>
+
+  <footer>© Mova Shop Promos</footer>
 </div>
 
 <script>
   var WA_LINK = "https://chat.whatsapp.com/C32VXb5tYgv74zOPOmV2eF";
 
-  function withUTM(url){
-    try{
-      var params = new URLSearchParams(window.location.search);
-      if(![...params.keys()].length) return url;
-      var sep = url.indexOf('?') > -1 ? '&' : '?';
-      return url;
-    }catch(e){ return url; }
-  }
-
-  document.querySelectorAll('#hero-click').forEach(function(el){
-    el.href = withUTM(WA_LINK);
+  document.querySelectorAll('#hero-click, #hero-click-2').forEach(function(el){
+    el.href = WA_LINK;
     el.addEventListener('click', function(){
       if (typeof fbq === 'function') { fbq('track', 'Lead'); }
       if (typeof gtag === 'function') { gtag('event', 'conversion'); }
