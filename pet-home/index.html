@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Home — Caminhas e comedouros personalizados para cachorro</title>
+<meta name="description" content="Caminhas e comedouros feitos sob medida para o seu cachorro, com o nome dele bordado ou gravado. Escolha o modelo, o tecido e o tamanho. Enviamos para todo o Brasil.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pet Home — Caminhas e comedouros personalizados">
+<meta property="og:description" content="O nome do seu cachorro bordado na caminha. Modelos, tecidos e tamanhos sob medida.">
+<meta name="theme-color" content="#2E5E4E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232E5E4E'/><ellipse cx='32' cy='42' rx='13' ry='10' fill='%23F5B335'/><ellipse cx='16' cy='28' rx='6' ry='7.5' fill='%23F5B335'/><ellipse cx='48' cy='28' rx='6' ry='7.5' fill='%23F5B335'/><ellipse cx='25' cy='17' rx='5.5' ry='7' fill='%23F5B335'/><ellipse cx='39' cy='17' rx='5.5' ry='7' fill='%23F5B335'/></svg>">
+</head>
+<body>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ===================== SÍMBOLOS SVG REUTILIZÁVEIS ===================== -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="sym-patinha" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="42" rx="15.5" ry="12.5"/>
+    <ellipse cx="13.5" cy="26" rx="7" ry="8.8" transform="rotate(-18 13.5 26)"/>
+    <ellipse cx="50.5" cy="26" rx="7" ry="8.8" transform="rotate(18 50.5 26)"/>
+    <ellipse cx="24" cy="13.5" rx="6.6" ry="8.2" transform="rotate(-8 24 13.5)"/>
+    <ellipse cx="42" cy="13.5" rx="6.6" ry="8.2" transform="rotate(8 42 13.5)"/>
+  </symbol>
+  <symbol id="sym-osso" viewBox="0 0 64 32">
+    <path d="M14 6.5a7 7 0 0 1 11.4 5.3h13.2A7 7 0 1 1 50 19.5a7 7 0 0 1-11.4 5.3H25.4A7 7 0 1 1 14 6.5Z"/>
+  </symbol>
+  <symbol id="sym-casa" viewBox="0 0 64 64">
+    <path d="M32 6 5 28v30a3 3 0 0 0 3 3h48a3 3 0 0 0 3-3V28L32 6Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<!-- ===================== TOPO ===================== -->
+<header class="topo" id="topo">
+  <div class="topo-interno">
+    <a class="marca" href="#inicio" aria-label="Pet Home, página inicial">
+      <span class="marca-selo" aria-hidden="true">
+        <svg class="marca-casa" viewBox="0 0 64 64"><use href="#sym-casa"></use></svg>
+        <svg class="marca-patinha" viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+      </span>
+      <span class="marca-nome">Pet<span>Home</span></span>
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Navegação principal">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#exemplos">Exemplos</a>
+      <a href="#tamanhos">Tamanhos</a>
+      <a href="#cuidados">Materiais</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="menu-cta" href="#contato">Fazer meu pedido</a>
+    </nav>
+
+    <button class="menu-botao" id="menu-botao" aria-expanded="false" aria-controls="menu">
+      <span class="menu-barras" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="sr">Abrir menu</span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ===================== HERO + PERSONALIZADOR ===================== -->
+<section class="hero" id="inicio">
+  <div class="hero-interno">
+
+    <div class="hero-texto">
+      <p class="etiqueta">Feito à mão · Enviamos para todo o Brasil</p>
+      <h1 class="hero-titulo">
+        O nome dele <span class="bordado">bordado</span> na caminha de casa.
+      </h1>
+      <p class="hero-sub">
+        A Pet Home faz caminhas e comedouros sob medida para o seu cachorro.
+        Você escolhe o modelo, o tecido, o tamanho e o nome — a gente costura,
+        grava e manda pronto para usar.
+      </p>
+
+      <div class="hero-botoes">
+        <a class="botao botao-principal" href="#exemplos">Ver os exemplos</a>
+        <a class="botao botao-vazado" href="#contato">Pedir um orçamento</a>
+      </div>
+
+      <ul class="hero-selos">
+        <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#sym-patinha"></use></svg> Capa que sai e vai à máquina</li>
+        <li><svg viewBox="0 0 64 32" aria-hidden="true"><use href="#sym-osso"></use></svg> 4 portes, do Yorkshire ao Golden</li>
+        <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#sym-patinha"></use></svg> Bordado incluso, sem taxa extra</li>
+      </ul>
+    </div>
+
+    <!-- ELEMENTO ASSINATURA: personalizador ao vivo -->
+    <div class="perso" id="perso">
+      <div class="perso-cabeca">
+        <p class="perso-titulo">Escreva o nome e veja como fica</p>
+        <div class="perso-troca" role="group" aria-label="Escolher peça para visualizar">
+          <button type="button" class="perso-troca-btn ativo" data-peca="caminha" aria-pressed="true">Caminha</button>
+          <button type="button" class="perso-troca-btn" data-peca="comedouro" aria-pressed="false">Comedouro</button>
+        </div>
+      </div>
+
+      <div class="perso-palco">
+        <!-- ---------- CAMINHA ---------- -->
+        <svg class="peca peca-caminha ativo" viewBox="27 60 366 194" role="img" aria-labelledby="tit-caminha">
+          <title id="tit-caminha">Prévia da caminha personalizada com o nome do pet bordado</title>
+          <ellipse class="sombra" cx="210" cy="222" rx="168" ry="24"/>
+          <!-- rolo externo -->
+          <ellipse class="tecido-base" cx="210" cy="150" rx="175" ry="78"/>
+          <ellipse class="tecido-claro" cx="210" cy="140" rx="175" ry="72"/>
+          <!-- miolo -->
+          <ellipse class="tecido-escuro" cx="210" cy="140" rx="120" ry="44"/>
+          <ellipse class="tecido-base" cx="210" cy="134" rx="118" ry="42"/>
+          <!-- costura decorativa -->
+          <ellipse class="linha-costura" cx="210" cy="134" rx="104" ry="33"/>
+          <ellipse class="linha-costura" cx="210" cy="146" rx="167" ry="66"/>
+          <!-- nome bordado na frente do rolo -->
+          <text class="nome-bordado" id="nome-caminha" x="210" y="196" text-anchor="middle">Thor</text>
+          <!-- etiqueta da marca -->
+          <g class="etiqueta-marca">
+            <rect x="288" y="170" width="60" height="22" rx="6"/>
+            <text x="318" y="185" text-anchor="middle">PET HOME</text>
+          </g>
+        </svg>
+
+        <!-- ---------- COMEDOURO ---------- -->
+        <svg class="peca peca-comedouro" viewBox="52 60 316 192" role="img" aria-labelledby="tit-comedouro">
+          <title id="tit-comedouro">Prévia do comedouro personalizado com o nome do pet gravado</title>
+          <ellipse class="sombra" cx="210" cy="224" rx="150" ry="20"/>
+          <!-- jogo americano de madeira -->
+          <rect class="madeira-topo" x="72" y="196" width="276" height="24" rx="12"/>
+          <!-- tigela -->
+          <path class="tecido-escuro" d="M96 100l36 94q78 18 156 0l36-94Z"/>
+          <path class="tecido-base" d="M104 104l34 86q72 16 144 0l34-86Z"/>
+          <ellipse class="tecido-claro" cx="210" cy="100" rx="110" ry="32"/>
+          <ellipse class="tecido-escuro" cx="210" cy="102" rx="92" ry="25"/>
+          <ellipse class="racao" cx="210" cy="104" rx="76" ry="19"/>
+          <!-- nome gravado na frente da tigela -->
+          <text class="nome-bordado nome-gravado" id="nome-comedouro" x="210" y="164" text-anchor="middle">Thor</text>
+        </svg>
+
+        <!-- cachorrinho espiando -->
+        <svg class="cao-espia" viewBox="0 0 120 120" aria-hidden="true">
+          <g class="cao-rabo"><path d="M96 78c14-4 16-18 10-26" fill="none" stroke="#8A5A3B" stroke-width="9" stroke-linecap="round"/></g>
+          <ellipse cx="62" cy="86" rx="34" ry="26" fill="#A97045"/>
+          <ellipse cx="46" cy="54" rx="26" ry="24" fill="#BF8253"/>
+          <path d="M24 40c-8 2-12 14-8 26 5 12 14 10 18 4" fill="#8A5A3B"/>
+          <path d="M68 40c8 2 12 14 8 26-5 12-14 10-18 4" fill="#8A5A3B"/>
+          <ellipse cx="38" cy="52" rx="4" ry="5" fill="#2A1D14"/>
+          <ellipse cx="56" cy="52" rx="4" ry="5" fill="#2A1D14"/>
+          <ellipse cx="47" cy="64" rx="7" ry="5.5" fill="#2A1D14"/>
+          <path d="M47 69v5" stroke="#2A1D14" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="perso-controles">
+        <div class="campo-nome">
+          <label for="nome-pet">Nome do pet</label>
+          <input type="text" id="nome-pet" maxlength="12" value="Thor" placeholder="Ex: Mel" autocomplete="off" spellcheck="false">
+          <span class="campo-dica"><span id="contador-nome">4</span>/12 letras</span>
+        </div>
+
+        <fieldset class="campo-cores">
+          <legend>Tecido</legend>
+          <div class="cores" id="cores-perso">
+            <button type="button" class="cor ativo" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="true"><span class="sr">Verde musgo</span></button>
+            <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+            <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+            <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+            <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+            <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+          </div>
+          <p class="cor-nome" aria-live="polite">Verde musgo</p>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <!-- trilha de patinhas caminhando -->
+  <div class="trilha" aria-hidden="true">
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+  </div>
+</section>
+
+<!-- ===================== COMO FUNCIONA ===================== -->
+<section class="secao secao-clara" id="como-funciona">
+  <div class="interno">
+    <header class="secao-cabeca revelar">
+      <p class="etiqueta">Do pedido à porta da sua casa</p>
+      <h2 class="secao-titulo">Como funciona</h2>
+      <p class="secao-sub">São quatro passos, nessa ordem. Você acompanha cada um por WhatsApp.</p>
+    </header>
+
+    <ol class="passos">
+      <li class="passo revelar">
+        <span class="passo-num">1</span>
+        <h3>Escolha o modelo</h3>
+        <p>Caminha ninho, sofá, colchonete ou toca. Comedouro simples, duplo elevado ou lento. Tudo está na aba de exemplos aqui embaixo.</p>
+      </li>
+      <li class="passo revelar">
+        <span class="passo-num">2</span>
+        <h3>Meça o seu cachorro</h3>
+        <p>Do focinho até o início do rabo, com ele deitado. A gente usa essa medida na tabela de tamanhos e confirma o porte com você.</p>
+      </li>
+      <li class="passo revelar">
+        <span class="passo-num">3</span>
+        <h3>Escolha tecido e nome</h3>
+        <p>Seis cores de tecido, seis cores de linha. O nome vai bordado na caminha e gravado a laser no comedouro, sem custo adicional.</p>
+      </li>
+      <li class="passo revelar">
+        <span class="passo-num">4</span>
+        <h3>Receba em casa</h3>
+        <p>Produção de 5 a 8 dias úteis. Enviamos foto da peça pronta antes de despachar — se algo não ficou como você imaginou, refazemos.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== EXEMPLOS / CATÁLOGO ===================== -->
+<section class="secao secao-areia" id="exemplos">
+  <div class="interno">
+    <header class="secao-cabeca revelar">
+      <p class="etiqueta">Aba de exemplos</p>
+      <h2 class="secao-titulo">Como ficam as peças</h2>
+      <p class="secao-sub">
+        Estes são os modelos que produzimos hoje. Toque nas bolinhas de cor de cada
+        peça para ver como ela fica no tecido que você quer.
+      </p>
+    </header>
+
+    <div class="abas revelar" role="tablist" aria-label="Categorias de produtos">
+      <button class="aba ativo" role="tab" id="aba-caminhas" aria-selected="true" aria-controls="painel-caminhas" tabindex="0">
+        Caminhas <span class="aba-conta">4</span>
+      </button>
+      <button class="aba" role="tab" id="aba-comedouros" aria-selected="false" aria-controls="painel-comedouros" tabindex="-1">
+        Comedouros <span class="aba-conta">4</span>
+      </button>
+      <button class="aba" role="tab" id="aba-kits" aria-selected="false" aria-controls="painel-kits" tabindex="-1">
+        Kits <span class="aba-conta">2</span>
+      </button>
+    </div>
+
+    <!-- ---------- PAINEL CAMINHAS ---------- -->
+    <div class="painel ativo" role="tabpanel" id="painel-caminhas" aria-labelledby="aba-caminhas" tabindex="0">
+      <div class="grade-produtos">
+
+        <article class="produto revelar" style="--produto-cor:#2E5E4E">
+          <div class="produto-arte">
+            <svg viewBox="42 56 336 178" role="img" aria-label="Caminha modelo Ninho, redonda com bordas altas">
+              <ellipse class="sombra" cx="210" cy="206" rx="150" ry="20"/>
+              <ellipse class="tecido-base" cx="210" cy="140" rx="160" ry="72"/>
+              <ellipse class="tecido-claro" cx="210" cy="130" rx="160" ry="66"/>
+              <ellipse class="tecido-escuro" cx="210" cy="130" rx="108" ry="40"/>
+              <ellipse class="tecido-base" cx="210" cy="125" rx="106" ry="38"/>
+              <ellipse class="linha-costura" cx="210" cy="125" rx="92" ry="30"/>
+              <text class="nome-bordado nome-card" x="210" y="180" text-anchor="middle">Thor</text>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Ninho Aconchego</h3>
+            <p class="produto-desc">A redonda clássica, com borda alta em volta inteira. Para cachorro que dorme encolhido e gosta de encostar a cabeça na parede da caminha.</p>
+            <ul class="ficha">
+              <li><span>Tecido</span><b>Sarja peletizada</b></li>
+              <li><span>Enchimento</span><b>Fibra siliconada</b></li>
+              <li><span>Capa</span><b>Removível, com zíper</b></li>
+              <li><span>Tamanhos</span><b>P, M, G, GG</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor ativo" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="true"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 189</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Ninho Aconchego">Quero esta</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="produto revelar" style="--produto-cor:#3E6E97">
+          <div class="produto-arte">
+            <svg viewBox="50 72 320 162" role="img" aria-label="Caminha modelo Sofá, retangular com encosto em três lados">
+              <ellipse class="sombra" cx="210" cy="208" rx="150" ry="18"/>
+              <path class="tecido-escuro" d="M58 96a16 16 0 0 1 16-16h272a16 16 0 0 1 16 16v78a14 14 0 0 1-14 14H72a14 14 0 0 1-14-14V96Z"/>
+              <rect class="tecido-base" x="58" y="80" width="304" height="96" rx="16"/>
+              <rect class="tecido-claro" x="58" y="80" width="304" height="30" rx="15"/>
+              <rect class="tecido-claro" x="58" y="80" width="34" height="96" rx="16"/>
+              <rect class="tecido-claro" x="328" y="80" width="34" height="96" rx="16"/>
+              <rect class="tecido-escuro" x="98" y="112" width="224" height="60" rx="12"/>
+              <rect class="linha-costura-r" x="106" y="120" width="208" height="44" rx="9"/>
+              <text class="nome-bordado nome-card" x="210" y="152" text-anchor="middle">Thor</text>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Sofá Varanda</h3>
+            <p class="produto-desc">Retangular, com encosto nos três lados e frente aberta. O cachorro entra e sai sem escalar — bom para filhote e para cachorro idoso.</p>
+            <ul class="ficha">
+              <li><span>Tecido</span><b>Linho misto</b></li>
+              <li><span>Base</span><b>Espuma D28 de 8 cm</b></li>
+              <li><span>Extra</span><b>Antiderrapante embaixo</b></li>
+              <li><span>Tamanhos</span><b>M, G, GG</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="false"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor ativo" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="true"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 279</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Sofá Varanda">Quero esta</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="produto revelar" style="--produto-cor:#B5793F">
+          <div class="produto-arte">
+            <svg viewBox="44 96 332 124" role="img" aria-label="Caminha modelo Colchonete, plana e matelassada">
+              <ellipse class="sombra" cx="210" cy="196" rx="146" ry="16"/>
+              <path class="tecido-escuro" d="M52 118a14 14 0 0 1 14-14h288a14 14 0 0 1 14 14v40a14 14 0 0 1-14 14H66a14 14 0 0 1-14-14v-40Z"/>
+              <rect class="tecido-base" x="52" y="104" width="316" height="58" rx="14"/>
+              <rect class="tecido-claro" x="52" y="104" width="316" height="16" rx="8"/>
+              <g class="linha-costura-r">
+                <line x1="88" y1="112" x2="88" y2="154"/>
+                <line x1="126" y1="112" x2="126" y2="154"/>
+                <line x1="294" y1="112" x2="294" y2="154"/>
+                <line x1="332" y1="112" x2="332" y2="154"/>
+              </g>
+              <text class="nome-bordado nome-card" x="210" y="144" text-anchor="middle">Thor</text>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Colchonete Soneca</h3>
+            <p class="produto-desc">Plano e matelassado, sem borda. Cabe dentro da caixa de transporte, do carro ou embaixo da mesa. O modelo que mais sai para viagem.</p>
+            <ul class="ficha">
+              <li><span>Tecido</span><b>Algodão impermeável</b></li>
+              <li><span>Base</span><b>Manta acrílica prensada</b></li>
+              <li><span>Extra</span><b>Dobra ao meio, com alça</b></li>
+              <li><span>Tamanhos</span><b>P, M, G, GG</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="false"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor ativo" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="true"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 139</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Colchonete Soneca">Quero esta</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="produto revelar" style="--produto-cor:#6E4A78">
+          <div class="produto-arte">
+            <svg viewBox="62 26 296 204" role="img" aria-label="Caminha modelo Toca, fechada em formato de casinha com abertura frontal">
+              <ellipse class="sombra" cx="210" cy="204" rx="140" ry="18"/>
+              <path class="tecido-escuro" d="M210 34c78 0 132 58 132 122v14H78v-14C78 92 132 34 210 34Z"/>
+              <path class="tecido-base" d="M210 40c74 0 124 56 124 116v10H86v-10C86 96 136 40 210 40Z"/>
+              <path class="tecido-claro" d="M210 40c-42 0-76 18-98 46 24-16 58-24 98-24s74 8 98 24c-22-28-56-46-98-46Z"/>
+              <ellipse class="toca-vao" cx="210" cy="140" rx="66" ry="50"/>
+              <path class="linha-costura-r" d="M144 142a66 50 0 0 1 132 0" fill="none"/>
+              <rect class="tecido-escuro" x="70" y="160" width="280" height="36" rx="18"/>
+              <rect class="tecido-base" x="70" y="156" width="280" height="34" rx="17"/>
+              <text class="nome-bordado nome-card" x="210" y="182" text-anchor="middle">Thor</text>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Toca Refúgio</h3>
+            <p class="produto-desc">Fechada em cima, com abertura na frente. Para cachorro que se esconde no sofá, que sente frio ou que fica agitado com barulho de rua.</p>
+            <ul class="ficha">
+              <li><span>Tecido</span><b>Suede + pelúcia interna</b></li>
+              <li><span>Estrutura</span><b>Arco removível</b></li>
+              <li><span>Extra</span><b>Almofada solta inclusa</b></li>
+              <li><span>Tamanhos</span><b>P, M, G</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="false"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor ativo" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="true"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 349</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Toca Refúgio">Quero esta</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ---------- PAINEL COMEDOUROS ---------- -->
+    <div class="painel" role="tabpanel" id="painel-comedouros" aria-labelledby="aba-comedouros" tabindex="0" hidden>
+      <div class="grade-produtos">
+
+        <article class="produto revelar" style="--produto-cor:#2E5E4E">
+          <div class="produto-arte">
+            <svg viewBox="42 70 336 168" role="img" aria-label="Comedouro duplo elevado sobre suporte de madeira">
+              <ellipse class="sombra" cx="210" cy="212" rx="150" ry="18"/>
+              <path class="madeira" d="M56 154h308l-16 44a10 10 0 0 1-10 7H82a10 10 0 0 1-10-7l-16-44Z"/>
+              <rect class="madeira-topo" x="50" y="142" width="320" height="16" rx="8"/>
+              <path class="tecido-escuro" d="M74 96h122l-16 50a9 9 0 0 1-8 6h-74a9 9 0 0 1-8-6L74 96Z"/>
+              <ellipse class="tecido-claro" cx="135" cy="96" rx="61" ry="18"/>
+              <ellipse class="tecido-escuro" cx="135" cy="98" rx="50" ry="13"/>
+              <ellipse class="racao" cx="135" cy="99" rx="40" ry="9"/>
+              <path class="tecido-escuro" d="M224 96h122l-16 50a9 9 0 0 1-8 6h-74a9 9 0 0 1-8-6l-16-50Z"/>
+              <ellipse class="tecido-claro" cx="285" cy="96" rx="61" ry="18"/>
+              <ellipse class="tecido-escuro" cx="285" cy="98" rx="50" ry="13"/>
+              <ellipse class="agua" cx="285" cy="99" rx="40" ry="9"/>
+              <text class="nome-bordado nome-card nome-gravado" x="210" y="186" text-anchor="middle">Thor</text>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Duplo Elevado</h3>
+            <p class="produto-desc">Duas tigelas na altura do peito do cachorro, num suporte de madeira com o nome gravado. Ele come sem abaixar o pescoço e o chão fica limpo.</p>
+            <ul class="ficha">
+              <li><span>Tigelas</span><b>Inox removível, 900 ml</b></li>
+              <li><span>Suporte</span><b>Pinus com verniz atóxico</b></li>
+              <li><span>Alturas</span><b>12, 18 ou 24 cm</b></li>
+              <li><span>Gravação</span><b>A laser, na frente</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor ativo" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="true"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 169</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Comedouro Duplo Elevado">Quero este</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="produto revelar" style="--produto-cor:#D9556E">
+          <div class="produto-arte">
+            <svg viewBox="74 62 272 168" role="img" aria-label="Comedouro de cerâmica com o nome gravado na lateral">
+              <ellipse class="sombra" cx="210" cy="204" rx="128" ry="18"/>
+              <path class="tecido-escuro" d="M104 100h212l-26 84a12 12 0 0 1-11 8H141a12 12 0 0 1-11-8l-26-84Z"/>
+              <path class="tecido-base" d="M112 102h196l-24 78a11 11 0 0 1-10 7H146a11 11 0 0 1-10-7l-24-78Z"/>
+              <ellipse class="tecido-claro" cx="210" cy="100" rx="106" ry="30"/>
+              <ellipse class="tecido-escuro" cx="210" cy="102" rx="88" ry="23"/>
+              <ellipse class="racao" cx="210" cy="104" rx="72" ry="17"/>
+              <text class="nome-bordado nome-card nome-gravado" x="210" y="150" text-anchor="middle">Thor</text>
+              <use class="patinha-gravada" href="#sym-patinha" x="196" y="158" width="28" height="28"></use>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Cerâmica Assinatura</h3>
+            <p class="produto-desc">Uma tigela só, pesada, que não sai do lugar quando o cachorro come com vontade. O nome e a patinha são pintados à mão e vão ao forno.</p>
+            <ul class="ficha">
+              <li><span>Material</span><b>Cerâmica esmaltada</b></li>
+              <li><span>Capacidade</span><b>400 ml ou 750 ml</b></li>
+              <li><span>Lava-louças</span><b>Pode</b></li>
+              <li><span>Pintura</span><b>À mão, atóxica</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="false"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor ativo" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="true"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 89</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Comedouro Cerâmica Assinatura">Quero este</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="produto revelar" style="--produto-cor:#3E6E97">
+          <div class="produto-arte">
+            <svg viewBox="74 66 272 160" role="img" aria-label="Comedouro lento com obstáculos em espiral no fundo">
+              <ellipse class="sombra" cx="210" cy="200" rx="128" ry="18"/>
+              <path class="tecido-escuro" d="M108 104h204l-24 74a12 12 0 0 1-11 8H143a12 12 0 0 1-11-8l-24-74Z"/>
+              <path class="tecido-base" d="M116 106h188l-22 68a11 11 0 0 1-10 7H148a11 11 0 0 1-10-7l-22-68Z"/>
+              <ellipse class="tecido-claro" cx="210" cy="104" rx="102" ry="30"/>
+              <ellipse class="tecido-escuro" cx="210" cy="106" rx="86" ry="24"/>
+              <g class="obstaculos">
+                <ellipse cx="210" cy="104" rx="16" ry="9"/>
+                <ellipse cx="164" cy="100" rx="13" ry="8"/>
+                <ellipse cx="256" cy="100" rx="13" ry="8"/>
+                <ellipse cx="186" cy="116" rx="12" ry="7"/>
+                <ellipse cx="234" cy="116" rx="12" ry="7"/>
+              </g>
+              <text class="nome-bordado nome-card nome-gravado" x="210" y="158" text-anchor="middle">Thor</text>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Comedouro Lento</h3>
+            <p class="produto-desc">Tem obstáculos no fundo que obrigam o cachorro a pegar a ração aos poucos. Para quem come rápido demais, engasga ou passa mal depois da refeição.</p>
+            <ul class="ficha">
+              <li><span>Material</span><b>Silicone alimentar</b></li>
+              <li><span>Capacidade</span><b>500 ml</b></li>
+              <li><span>Base</span><b>Ventosa antiderrapante</b></li>
+              <li><span>Gravação</span><b>Nome em relevo</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="false"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor ativo" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="true"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 79</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Comedouro Lento">Quero este</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="produto revelar" style="--produto-cor:#6B4A3A">
+          <div class="produto-arte">
+            <svg viewBox="74 26 272 212" role="img" aria-label="Bebedouro alto com reservatório e nome gravado">
+              <ellipse class="sombra" cx="210" cy="212" rx="128" ry="18"/>
+              <!-- reservatório -->
+              <rect class="tecido-escuro" x="140" y="34" width="140" height="124" rx="18"/>
+              <rect class="tecido-base" x="146" y="38" width="128" height="116" rx="15"/>
+              <rect class="agua" x="158" y="74" width="104" height="72" rx="10"/>
+              <rect class="brilho" x="164" y="50" width="13" height="88" rx="6.5"/>
+              <!-- tigela -->
+              <path class="tecido-escuro" d="M104 150h212l-24 56a12 12 0 0 1-11 7H139a12 12 0 0 1-11-7l-24-56Z"/>
+              <path class="tecido-base" d="M112 152h196l-22 50a11 11 0 0 1-10 6H144a11 11 0 0 1-10-6l-22-50Z"/>
+              <ellipse class="tecido-claro" cx="210" cy="150" rx="106" ry="26"/>
+              <ellipse class="agua" cx="210" cy="152" rx="86" ry="18"/>
+              <text class="nome-bordado nome-card nome-gravado" x="210" y="192" text-anchor="middle">Thor</text>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Bebedouro Fonte</h3>
+            <p class="produto-desc">Reservatório em cima que vai enchendo a tigela sozinho. Enche uma vez e dura o dia — para quem passa o dia fora e volta preocupado com a água.</p>
+            <ul class="ficha">
+              <li><span>Reservatório</span><b>2,5 litros</b></li>
+              <li><span>Material</span><b>PP atóxico + inox</b></li>
+              <li><span>Limpeza</span><b>Desmonta em 3 peças</b></li>
+              <li><span>Gravação</span><b>Nome na base</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="false"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor ativo" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="true"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 149</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Bebedouro Fonte">Quero este</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ---------- PAINEL KITS ---------- -->
+    <div class="painel" role="tabpanel" id="painel-kits" aria-labelledby="aba-kits" tabindex="0" hidden>
+      <div class="grade-produtos">
+
+        <article class="produto revelar" style="--produto-cor:#2E5E4E">
+          <div class="produto-arte">
+            <svg viewBox="16 70 396 150" role="img" aria-label="Kit com caminha ninho e comedouro duplo no mesmo tecido">
+              <ellipse class="sombra" cx="150" cy="196" rx="118" ry="16"/>
+              <ellipse class="sombra" cx="322" cy="198" rx="82" ry="14"/>
+              <ellipse class="tecido-base" cx="150" cy="140" rx="126" ry="58"/>
+              <ellipse class="tecido-claro" cx="150" cy="132" rx="126" ry="54"/>
+              <ellipse class="tecido-escuro" cx="150" cy="132" rx="84" ry="32"/>
+              <ellipse class="tecido-base" cx="150" cy="128" rx="82" ry="30"/>
+              <text class="nome-bordado nome-card" x="150" y="170" text-anchor="middle">Thor</text>
+              <path class="madeira" d="M248 148h150l-10 34a9 9 0 0 1-9 6h-112a9 9 0 0 1-9-6l-10-34Z"/>
+              <rect class="madeira-topo" x="244" y="138" width="158" height="13" rx="6.5"/>
+              <ellipse class="tecido-claro" cx="286" cy="112" rx="34" ry="11"/>
+              <path class="tecido-escuro" d="M252 112h68l-9 28h-50l-9-28Z"/>
+              <ellipse class="racao" cx="286" cy="113" rx="26" ry="7"/>
+              <ellipse class="tecido-claro" cx="360" cy="112" rx="34" ry="11"/>
+              <path class="tecido-escuro" d="M326 112h68l-9 28h-50l-9-28Z"/>
+              <ellipse class="agua" cx="360" cy="113" rx="26" ry="7"/>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Kit Cantinho Completo</h3>
+            <p class="produto-desc">Caminha Ninho + comedouro duplo elevado no mesmo tecido e com a mesma tipografia no nome. É o cantinho do cachorro montado de uma vez só.</p>
+            <ul class="ficha">
+              <li><span>Inclui</span><b>Caminha + comedouro</b></li>
+              <li><span>Brinde</span><b>Jogo americano lavável</b></li>
+              <li><span>Economia</span><b>R$ 60 vs. separado</b></li>
+              <li><span>Tamanhos</span><b>P, M, G, GG</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor ativo" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="true"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="false"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 298</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Kit Cantinho Completo">Quero este kit</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="produto revelar" style="--produto-cor:#B5793F">
+          <div class="produto-arte">
+            <svg viewBox="38 83 344 145" role="img" aria-label="Kit boas-vindas com colchonete, tigela de cerâmica e plaquinha de coleira">
+              <ellipse class="sombra" cx="210" cy="204" rx="150" ry="16"/>
+              <path class="tecido-escuro" d="M46 132a12 12 0 0 1 12-12h180a12 12 0 0 1 12 12v34a12 12 0 0 1-12 12H58a12 12 0 0 1-12-12v-34Z"/>
+              <rect class="tecido-base" x="46" y="120" width="204" height="50" rx="12"/>
+              <g class="linha-costura-r">
+                <line x1="72" y1="128" x2="72" y2="162"/>
+                <line x1="94" y1="128" x2="94" y2="162"/>
+                <line x1="202" y1="128" x2="202" y2="162"/>
+                <line x1="224" y1="128" x2="224" y2="162"/>
+              </g>
+              <text class="nome-bordado nome-card" x="148" y="154" text-anchor="middle">Thor</text>
+              <!-- tigela de cerâmica -->
+              <path class="tecido-escuro" d="M262 108h112l-16 62a10 10 0 0 1-9 7h-62a10 10 0 0 1-9-7l-16-62Z"/>
+              <path class="tecido-base" d="M268 110h100l-14 56a9 9 0 0 1-8 6h-56a9 9 0 0 1-8-6l-14-56Z"/>
+              <ellipse class="tecido-claro" cx="318" cy="108" rx="56" ry="17"/>
+              <ellipse class="tecido-escuro" cx="318" cy="110" rx="44" ry="12"/>
+              <ellipse class="racao" cx="318" cy="111" rx="36" ry="9"/>
+              <!-- plaquinha de coleira -->
+              <use class="plaquinha" href="#sym-osso" x="146" y="180" width="72" height="36"></use>
+            </svg>
+          </div>
+          <div class="produto-corpo">
+            <h3 class="produto-nome">Kit Boas-vindas</h3>
+            <p class="produto-desc">Para quem acabou de adotar. Colchonete, tigela de cerâmica e uma plaquinha de coleira com o nome e o seu telefone — tudo com o mesmo nome gravado.</p>
+            <ul class="ficha">
+              <li><span>Inclui</span><b>Colchonete + tigela</b></li>
+              <li><span>Extra</span><b>Plaquinha de coleira</b></li>
+              <li><span>Embalagem</span><b>Caixa de presente</b></li>
+              <li><span>Tamanhos</span><b>P, M, G</b></li>
+            </ul>
+            <div class="cores cores-card" data-cores>
+              <button type="button" class="cor" style="--amostra:#2E5E4E" data-cor="#2E5E4E" aria-pressed="false"><span class="sr">Verde musgo</span></button>
+              <button type="button" class="cor" style="--amostra:#6B4A3A" data-cor="#6B4A3A" aria-pressed="false"><span class="sr">Café</span></button>
+              <button type="button" class="cor" style="--amostra:#D9556E" data-cor="#D9556E" aria-pressed="false"><span class="sr">Rosa focinho</span></button>
+              <button type="button" class="cor" style="--amostra:#3E6E97" data-cor="#3E6E97" aria-pressed="false"><span class="sr">Azul céu</span></button>
+              <button type="button" class="cor ativo" style="--amostra:#B5793F" data-cor="#B5793F" aria-pressed="true"><span class="sr">Caramelo</span></button>
+              <button type="button" class="cor" style="--amostra:#6E4A78" data-cor="#6E4A78" aria-pressed="false"><span class="sr">Ameixa</span></button>
+            </div>
+            <div class="produto-rodape">
+              <p class="preco">a partir de <b>R$ 219</b></p>
+              <button type="button" class="botao botao-mel" data-pedir="Kit Boas-vindas">Quero este kit</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <p class="nota-preco revelar">
+      Os valores são para o tamanho P e variam conforme o tamanho e o tecido.
+      O bordado e a gravação do nome já estão inclusos.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== TAMANHOS ===================== -->
+<section class="secao secao-escura" id="tamanhos">
+  <div class="interno">
+    <header class="secao-cabeca revelar">
+      <p class="etiqueta etiqueta-clara">Antes de pedir</p>
+      <h2 class="secao-titulo">Qual tamanho é o do seu cachorro</h2>
+      <p class="secao-sub secao-sub-clara">
+        Meça o seu cachorro deitado, do focinho até o início do rabo, e some 10 cm.
+        Na dúvida entre dois tamanhos, vá no maior — cachorro gosta de esticar.
+      </p>
+    </header>
+
+    <div class="tabela-caixa revelar">
+      <table class="tabela">
+        <caption class="sr">Tabela de tamanhos por porte do cachorro</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tamanho</th>
+            <th scope="col">Peso do cachorro</th>
+            <th scope="col">Medida da caminha</th>
+            <th scope="col">Raças de exemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><span class="porte">P</span></th>
+            <td>até 7 kg</td>
+            <td>50 × 40 cm</td>
+            <td>Yorkshire, Shih Tzu, Lulu</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="porte">M</span></th>
+            <td>7 a 15 kg</td>
+            <td>70 × 55 cm</td>
+            <td>Beagle, Shiba, Cocker</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="porte">G</span></th>
+            <td>15 a 30 kg</td>
+            <td>90 × 70 cm</td>
+            <td>Border Collie, Boxer</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="porte">GG</span></th>
+            <td>acima de 30 kg</td>
+            <td>110 × 85 cm</td>
+            <td>Golden, Labrador, Pastor</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tabela-nota revelar">
+      Precisa de uma medida que não está aqui? Fazemos sob medida sem custo de projeto —
+      mande as medidas no formulário e a gente calcula.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== MATERIAIS / DIFERENCIAIS ===================== -->
+<section class="secao secao-clara" id="cuidados">
+  <div class="interno">
+    <header class="secao-cabeca revelar">
+      <p class="etiqueta">O que tem por dentro</p>
+      <h2 class="secao-titulo">Materiais e cuidados</h2>
+      <p class="secao-sub">Caminha de cachorro suja. A nossa foi feita contando com isso.</p>
+    </header>
+
+    <div class="grade-cuidados">
+      <article class="cuidado revelar">
+        <span class="cuidado-icone" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg></span>
+        <h3>Capa que sai inteira</h3>
+        <p>Zíper contornando toda a base. Você tira a capa, joga na máquina em água fria e devolve — sem desmontar nada.</p>
+      </article>
+      <article class="cuidado revelar">
+        <span class="cuidado-icone" aria-hidden="true"><svg viewBox="0 0 64 32"><use href="#sym-osso"></use></svg></span>
+        <h3>Forro impermeável</h3>
+        <p>Entre a capa e o enchimento tem uma camada que segura xixi e baba. O enchimento não encharca nem cria cheiro.</p>
+      </article>
+      <article class="cuidado revelar">
+        <span class="cuidado-icone" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg></span>
+        <h3>Base antiderrapante</h3>
+        <p>Faixas de silicone embaixo. A caminha não escorrega no porcelanato quando o cachorro pula dentro dela correndo.</p>
+      </article>
+      <article class="cuidado revelar">
+        <span class="cuidado-icone" aria-hidden="true"><svg viewBox="0 0 64 32"><use href="#sym-osso"></use></svg></span>
+        <h3>Costura reforçada</h3>
+        <p>Ponto duplo nas bordas e nas alças. Aguenta cachorro que cava a caminha antes de deitar — que é praticamente todo cachorro.</p>
+      </article>
+      <article class="cuidado revelar">
+        <span class="cuidado-icone" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg></span>
+        <h3>Nada tóxico</h3>
+        <p>Verniz, tinta e silicone com certificação para contato com alimento. Cachorro rói tudo, e a gente escolheu material contando com isso.</p>
+      </article>
+      <article class="cuidado revelar">
+        <span class="cuidado-icone" aria-hidden="true"><svg viewBox="0 0 64 32"><use href="#sym-osso"></use></svg></span>
+        <h3>Capa avulsa depois</h3>
+        <p>Cansou da cor ou a capa rasgou? Vendemos capa separada por R$ 79. A estrutura da caminha continua a mesma.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEPOIMENTOS ===================== -->
+<section class="secao secao-areia">
+  <div class="interno">
+    <header class="secao-cabeca revelar">
+      <p class="etiqueta">Quem já recebeu</p>
+      <h2 class="secao-titulo">O que os tutores contaram</h2>
+    </header>
+
+    <div class="grade-depoimentos">
+      <figure class="depoimento revelar">
+        <blockquote>Ele não largou mais. Passou a dormir na caminha em vez de subir na minha cama, e o bordado do nome ficou perfeito, bem no meio da frente.</blockquote>
+        <figcaption>
+          <span class="dep-tutor">Marina R.</span>
+          <span class="dep-pet">tutora do <b>Biscoito</b> · Beagle</span>
+        </figcaption>
+      </figure>
+      <figure class="depoimento revelar">
+        <blockquote>Comprei o comedouro elevado porque meu cachorro é grande e regurgitava depois de comer. Parou. E a madeira com o nome dele ficou bonita na cozinha.</blockquote>
+        <figcaption>
+          <span class="dep-tutor">Eduardo P.</span>
+          <span class="dep-pet">tutor do <b>Zeus</b> · Labrador</span>
+        </figcaption>
+      </figure>
+      <figure class="depoimento revelar">
+        <blockquote>Lavei a capa umas seis vezes até agora e não desbotou nem encolheu. Já pedi a segunda capa em outra cor para revezar.</blockquote>
+        <figcaption>
+          <span class="dep-tutor">Carla M.</span>
+          <span class="dep-pet">tutora da <b>Nina</b> · Shih Tzu</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DÚVIDAS ===================== -->
+<section class="secao secao-clara" id="duvidas">
+  <div class="interno interno-estreito">
+    <header class="secao-cabeca revelar">
+      <p class="etiqueta">Perguntas frequentes</p>
+      <h2 class="secao-titulo">Dúvidas antes de comprar</h2>
+    </header>
+
+    <div class="faq">
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Quanto tempo leva para ficar pronto?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-resposta-interna"><p>De 5 a 8 dias úteis para produzir, mais o prazo dos Correios ou da transportadora para a sua cidade. Peças personalizadas não ficam prontas na prateleira — cada uma é costurada depois do pedido.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">O bordado do nome custa a mais?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-resposta-interna"><p>Não. O nome já está no preço, tanto o bordado da caminha quanto a gravação do comedouro. Até 12 letras. Acima disso a gente conversa sobre o layout antes de bordar.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Serve para gato também?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-resposta-interna"><p>Serve. O Ninho tamanho P e a Toca são os mais pedidos para gato. Só evite o tecido linho, que engancha na unha — prefira a sarja ou o suede.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Posso mandar o desenho ou a foto do meu cachorro?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-resposta-interna"><p>Pode. Fazemos a silhueta do seu cachorro bordada ao lado do nome por R$ 45 a mais. Mande a foto de perfil, com o cachorro em pé, no formulário de contato.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">E se o tamanho não servir?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-resposta-interna"><p>Você tem 7 dias para pedir a troca de tamanho. A peça precisa estar sem uso e sem cheiro. O frete da troca é por nossa conta na primeira vez.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Como faço o pagamento?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-resposta-interna"><p>Pix com 5% de desconto, ou cartão em até 6 vezes sem juros. Enviamos o link de pagamento pelo WhatsApp depois de fechar o modelo, o tamanho e o tecido com você.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="secao secao-escura" id="contato">
+  <div class="interno">
+    <div class="contato-grade">
+
+      <div class="contato-texto revelar">
+        <p class="etiqueta etiqueta-clara">Vamos fazer a sua</p>
+        <h2 class="secao-titulo">Conte do seu cachorro</h2>
+        <p class="secao-sub secao-sub-clara">
+          Preencha o formulário e a gente volta com o valor fechado, o prazo e uma
+          prévia de como o nome vai ficar na peça. Responder leva menos de um dia útil.
+        </p>
+
+        <ul class="contato-dados">
+          <li>
+            <span class="contato-rotulo">WhatsApp</span>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">(00) 00000-0000</a>
+          </li>
+          <li>
+            <span class="contato-rotulo">E-mail</span>
+            <a href="mailto:contato@pethome.com.br">contato@pethome.com.br</a>
+          </li>
+          <li>
+            <span class="contato-rotulo">Ateliê</span>
+            <span>Atendimento com hora marcada, de segunda a sexta</span>
+          </li>
+          <li>
+            <span class="contato-rotulo">Instagram</span>
+            <a href="https://instagram.com/" target="_blank" rel="noopener">@pethome</a>
+          </li>
+        </ul>
+      </div>
+
+      <!--
+        FORMULÁRIO — SEM BACKEND
+
+        Hoje o envio monta um e-mail no aplicativo de e-mail do visitante (mailto:).
+        Para receber os pedidos direto na sua caixa de entrada, troque por um serviço
+        de formulário. Com o Formspree, por exemplo:
+
+          1. Crie um formulário em https://formspree.io e copie o ID.
+          2. No <form> abaixo troque os atributos por:
+               action="https://formspree.io/f/SEU_ID"  method="POST"
+          3. Em script.js, apague o bloco marcado com "ENVIO VIA MAILTO".
+
+        O mesmo vale para Getform, Basin ou um endpoint próprio.
+      -->
+      <form class="formulario revelar" id="formulario" novalidate>
+        <div class="campo">
+          <label for="f-nome">Seu nome</label>
+          <input type="text" id="f-nome" name="nome" required autocomplete="name">
+          <span class="erro" data-erro-de="f-nome"></span>
+        </div>
+
+        <div class="campo-duplo">
+          <div class="campo">
+            <label for="f-email">E-mail</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="voce@email.com">
+            <span class="erro" data-erro-de="f-email"></span>
+          </div>
+          <div class="campo">
+            <label for="f-zap">WhatsApp <span class="opcional">(opcional)</span></label>
+            <input type="tel" id="f-zap" name="whatsapp" autocomplete="tel" placeholder="(00) 00000-0000">
+          </div>
+        </div>
+
+        <div class="campo-duplo">
+          <div class="campo">
+            <label for="f-produto">O que você quer</label>
+            <select id="f-produto" name="produto">
+              <option>Ninho Aconchego</option>
+              <option>Sofá Varanda</option>
+              <option>Colchonete Soneca</option>
+              <option>Toca Refúgio</option>
+              <option>Comedouro Duplo Elevado</option>
+              <option>Comedouro Cerâmica Assinatura</option>
+              <option>Comedouro Lento</option>
+              <option>Bebedouro Fonte</option>
+              <option>Kit Cantinho Completo</option>
+              <option>Kit Boas-vindas</option>
+              <option>Ainda não sei, quero ajuda</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="f-porte">Porte do cachorro</label>
+            <select id="f-porte" name="porte">
+              <option>P — até 7 kg</option>
+              <option>M — 7 a 15 kg</option>
+              <option>G — 15 a 30 kg</option>
+              <option>GG — acima de 30 kg</option>
+              <option>Não sei medir, me ajuda</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="f-petnome">Nome do pet <span class="opcional">(vai bordado)</span></label>
+          <input type="text" id="f-petnome" name="petnome" maxlength="12" placeholder="Thor">
+        </div>
+
+        <div class="campo">
+          <label for="f-msg">Conte um pouco sobre ele</label>
+          <textarea id="f-msg" name="mensagem" rows="4" required placeholder="Raça, se dorme encolhido ou esticado, cor que você quer, prazo que precisa…"></textarea>
+          <span class="erro" data-erro-de="f-msg"></span>
+        </div>
+
+        <button type="submit" class="botao botao-mel botao-largo">Enviar meu pedido</button>
+        <p class="form-aviso" id="form-aviso" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="interno rodape-grade">
+    <div class="rodape-marca">
+      <a class="marca marca-rodape" href="#inicio" aria-label="Pet Home, voltar ao topo">
+        <span class="marca-selo" aria-hidden="true">
+          <svg class="marca-casa" viewBox="0 0 64 64"><use href="#sym-casa"></use></svg>
+          <svg class="marca-patinha" viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+        </span>
+        <span class="marca-nome">Pet<span>Home</span></span>
+      </a>
+      <p>Caminhas e comedouros personalizados, feitos um a um depois do seu pedido.</p>
+    </div>
+
+    <nav class="rodape-links" aria-label="Links do rodapé">
+      <h2>Site</h2>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#exemplos">Exemplos</a>
+      <a href="#tamanhos">Tamanhos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+
+    <div class="rodape-links">
+      <h2>Falar com a gente</h2>
+      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:contato@pethome.com.br">contato@pethome.com.br</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <div class="interno rodape-base">
+    <p>© <span id="ano">2026</span> Pet Home. Todos os direitos reservados.</p>
+    <p class="rodape-patas" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+      <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+      <svg viewBox="0 0 64 64"><use href="#sym-patinha"></use></svg>
+    </p>
+  </div>
+</footer>
+
+<!-- Botão flutuante do WhatsApp — troque o número em script.js (WHATSAPP) -->
+<a class="zap" id="zap" href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8A13 13 0 1 0 16 3Zm7.5 18.4c-.3.9-1.8 1.7-2.5 1.8-.7.1-1.5.2-4.9-1.2-4.1-1.7-6.7-6-6.9-6.3-.2-.3-1.6-2.2-1.6-4.2 0-2 1-2.9 1.4-3.3.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7l1.2 3c.1.3.2.6 0 .9l-.5.7-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.6 2 2.5 1.4 1.2 2.5 1.6 2.8 1.8.3.2.5.1.7-.1l1-1.2c.3-.3.5-.2.8-.1l2.9 1.4c.3.2.6.3.7.4.1.3.1.9-.2 1.8Z"/></svg>
+  <span class="sr">Falar no WhatsApp</span>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
