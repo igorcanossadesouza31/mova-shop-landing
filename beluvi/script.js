@@ -5,13 +5,18 @@
   'use strict';
 
   /* ---------------------------------------------------------
-     CONFIGURAÇÃO — troque por seus dados reais
+     CONFIGURAÇÃO — é só aqui que ficam os seus dados
      --------------------------------------------------------- */
-  var WHATSAPP = '5511000000000';   // 55 + DDD + número, só dígitos
+  var WHATSAPP  = '5511911245639';              // 55 + DDD + número, só dígitos
+  var EMAIL     = 'empresabeluvi@gmail.com';
   var INSTAGRAM = 'beluvipet';
 
   document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
     a.href = 'https://wa.me/' + WHATSAPP;
+  });
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+    a.href = 'mailto:' + EMAIL;
+    if (a.textContent.indexOf('@') > -1) a.textContent = EMAIL;
   });
   document.querySelectorAll('a[href^="https://instagram.com/"]').forEach(function (a) {
     a.href = 'https://instagram.com/' + INSTAGRAM;
@@ -57,7 +62,7 @@
   function aoRolar() {
     var y = window.scrollY;
     topo.classList.toggle('grudado', y > 14);
-    zap.classList.toggle('visivel', y > 560);
+    zap.classList.toggle('visivel', y > 600);
   }
   window.addEventListener('scroll', aoRolar, { passive: true });
   aoRolar();
@@ -79,7 +84,7 @@
         el.classList.add('visivel');
         observador.unobserve(el);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
     revelaveis.forEach(function (el) { observador.observe(el); });
   }
 
@@ -108,8 +113,8 @@
     caixa.appendChild(fragmento);
   }
 
-  semearPatinhas(document.getElementById('patas-fundo'), 22);
-  semearPatinhas(document.getElementById('patas-pedido'), 14);
+  semearPatinhas(document.getElementById('patas-banner'), 20);
+  semearPatinhas(document.getElementById('patas-produtos'), 14);
 
   /* ---------------------------------------------------------
      Faixa rolante com os emblemas
@@ -132,6 +137,48 @@
     }).join('');
     trilho.innerHTML = html + html;   // duplicado para o laço ficar contínuo
   }
+
+  /* ---------------------------------------------------------
+     Abas
+     --------------------------------------------------------- */
+  var abas = Array.prototype.slice.call(document.querySelectorAll('.aba'));
+
+  function abrirAba(aba, focar) {
+    if (!aba) return;
+    abas.forEach(function (outra) {
+      var eEsta = outra === aba;
+      outra.classList.toggle('ativo', eEsta);
+      outra.setAttribute('aria-selected', String(eEsta));
+      outra.tabIndex = eEsta ? 0 : -1;
+
+      var painel = document.getElementById(outra.getAttribute('aria-controls'));
+      painel.hidden = !eEsta;
+      painel.classList.toggle('ativo', eEsta);
+    });
+    if (focar) aba.focus();
+    // a sanfona precisa remedir depois que o painel aparece
+    recalcularDuvidas();
+  }
+
+  abas.forEach(function (aba, i) {
+    aba.addEventListener('click', function () { abrirAba(aba, false); });
+
+    aba.addEventListener('keydown', function (e) {
+      var destino = null;
+      if (e.key === 'ArrowRight') destino = abas[(i + 1) % abas.length];
+      else if (e.key === 'ArrowLeft') destino = abas[(i - 1 + abas.length) % abas.length];
+      else if (e.key === 'Home') destino = abas[0];
+      else if (e.key === 'End') destino = abas[abas.length - 1];
+      if (destino) { e.preventDefault(); abrirAba(destino, true); }
+    });
+  });
+
+  /* Links do menu, do banner e do rodapé que abrem uma aba direto */
+  document.querySelectorAll('[data-aba]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      abrirAba(document.getElementById(link.dataset.aba), false);
+    });
+  });
 
   /* ---------------------------------------------------------
      Personalizador: o nome em todas as peças
@@ -177,7 +224,7 @@
     return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
   }
 
-  var perso = document.getElementById('perso') || document.querySelector('.perso');
+  var perso = document.getElementById('perso');
   var coresPerso = document.getElementById('cores-perso');
 
   if (coresPerso && perso) {
@@ -205,6 +252,13 @@
      --------------------------------------------------------- */
   var botoesFaq = document.querySelectorAll('.faq-botao');
 
+  function recalcularDuvidas() {
+    document.querySelectorAll('.faq-botao[aria-expanded="true"]').forEach(function (botao) {
+      var resposta = botao.parentNode.nextElementSibling;
+      resposta.style.maxHeight = resposta.scrollHeight + 'px';
+    });
+  }
+
   botoesFaq.forEach(function (botao) {
     var resposta = botao.parentNode.nextElementSibling;
 
@@ -222,15 +276,10 @@
     });
   });
 
-  window.addEventListener('resize', function () {
-    document.querySelectorAll('.faq-botao[aria-expanded="true"]').forEach(function (botao) {
-      var resposta = botao.parentNode.nextElementSibling;
-      resposta.style.maxHeight = resposta.scrollHeight + 'px';
-    });
-  });
+  window.addEventListener('resize', recalcularDuvidas);
 
   /* ---------------------------------------------------------
-     "Quero este" leva a peça escolhida para o formulário
+     "Quero esta" leva a peça escolhida para o formulário
      --------------------------------------------------------- */
   var seletorProduto = document.getElementById('f-produto');
   var campoPetNome = document.getElementById('f-petnome');
