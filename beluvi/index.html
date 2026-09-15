@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beluvi Pet — Caminhas e Kit Passeio personalizados com o nome do seu pet</title>
+<meta name="description" content="Beluvi Pet: caminhas, plaquinhas, chaveiros e porta-guia personalizados com o nome do seu pet. Escreva o nome e veja como fica na hora. O luxo de amar nos detalhes.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Beluvi Pet — O luxo de amar nos detalhes">
+<meta property="og:description" content="Caminhas e Kit Passeio com o nome do seu pet. Escreva o nome e veja a peça personalizada na hora.">
+<meta property="og:image" content="assets/caminha-beluvi.jpg">
+<meta name="theme-color" content="#18213F">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Parisienne&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%2318213F'/><ellipse cx='32' cy='42' rx='13' ry='10' fill='%23C9A063'/><ellipse cx='15' cy='27' rx='6' ry='7.5' fill='%23C9A063'/><ellipse cx='49' cy='27' rx='6' ry='7.5' fill='%23C9A063'/><ellipse cx='25' cy='16' rx='5.5' ry='7' fill='%23C9A063'/><ellipse cx='39' cy='16' rx='5.5' ry='7' fill='%23C9A063'/></svg>">
+</head>
+<body>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============ EMBLEMAS REUTILIZÁVEIS ============ -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" class="simbolos">
+  <symbol id="e-patinha" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="42" rx="15.5" ry="12.5"/>
+    <ellipse cx="13.5" cy="26" rx="7" ry="8.8" transform="rotate(-18 13.5 26)"/>
+    <ellipse cx="50.5" cy="26" rx="7" ry="8.8" transform="rotate(18 50.5 26)"/>
+    <ellipse cx="24" cy="13.5" rx="6.6" ry="8.2" transform="rotate(-8 24 13.5)"/>
+    <ellipse cx="42" cy="13.5" rx="6.6" ry="8.2" transform="rotate(8 42 13.5)"/>
+  </symbol>
+
+  <symbol id="e-osso" viewBox="0 0 64 32">
+    <path d="M14 6.5a7 7 0 0 1 11.4 5.3h13.2A7 7 0 1 1 50 19.5a7 7 0 0 1-11.4 5.3H25.4A7 7 0 1 1 14 6.5Z"/>
+  </symbol>
+
+  <symbol id="e-cao" viewBox="0 0 100 100">
+    <ellipse cx="38" cy="72" rx="26" ry="24"/>
+    <ellipse cx="58" cy="70" rx="16" ry="25"/>
+    <rect x="51" y="66" width="15" height="30" rx="7.5"/>
+    <circle cx="64" cy="34" r="18"/>
+    <ellipse cx="81" cy="41" rx="11" ry="8"/>
+    <ellipse cx="50" cy="33" rx="8" ry="15" transform="rotate(-22 50 33)"/>
+    <ellipse cx="14" cy="62" rx="6.5" ry="15" transform="rotate(32 14 62)"/>
+  </symbol>
+
+  <symbol id="e-gato" viewBox="0 0 100 100">
+    <ellipse cx="44" cy="74" rx="24" ry="22"/>
+    <ellipse cx="61" cy="68" rx="14" ry="26"/>
+    <circle cx="64" cy="32" r="16"/>
+    <path d="M51 23 46 5l16 9zM77 23 82 5l-16 9z"/>
+    <path d="M22 84C6 79 3 57 17 48" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="e-coracao" viewBox="0 0 64 60">
+    <path d="M32 56S4 39 4 21C4 11 11 4 20 4c5 0 10 3 12 7 2-4 7-7 12-7 9 0 16 7 16 17 0 18-28 35-28 35Z"/>
+  </symbol>
+
+  <symbol id="e-presente" viewBox="0 0 64 64">
+    <path d="M6 26h52v34a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26Zm-2-14h56a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/>
+    <path d="M28 12h8v52h-8z" fill="#fff" opacity=".35"/>
+    <path d="M32 12c-4-6-9-9-13-7s-3 7 2 8c4 1 8 0 11-1Zm0 0c4-6 9-9 13-7s3 7-2 8c-4 1-8 0-11-1Z"/>
+  </symbol>
+
+  <symbol id="e-casa" viewBox="0 0 64 64">
+    <path d="M32 6 5 28v30a3 3 0 0 0 3 3h48a3 3 0 0 0 3-3V28L32 6Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="e-tesoura" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round">
+      <path d="M18 42 43 9M46 42 21 9"/>
+      <circle cx="15" cy="50" r="8"/>
+      <circle cx="49" cy="50" r="8"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ============ TOPO ============ -->
+<header class="topo" id="topo">
+  <div class="topo-interno">
+    <a class="marca" href="#inicio" aria-label="Beluvi Pet, ir para o início">
+      <img class="marca-logo" src="assets/logo-beluvi.jpg" alt="" width="640" height="640">
+      <span class="marca-texto">
+        <span class="marca-nome">BELUVI</span>
+        <span class="marca-sub">PET</span>
+      </span>
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Navegação principal">
+      <a href="#personalizar">Personalizar</a>
+      <a href="#caminha">A Caminha</a>
+      <a href="#kit">Kit Passeio</a>
+      <a href="#como">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="menu-cta" href="#pedido">Fazer meu pedido</a>
+    </nav>
+
+    <button class="menu-botao" id="menu-botao" aria-expanded="false" aria-controls="menu">
+      <span class="menu-barras" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="sr">Abrir menu</span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="patas-fundo" id="patas-fundo" aria-hidden="true"></div>
+
+  <div class="hero-interno">
+    <div class="hero-texto">
+      <img class="hero-logo" src="assets/logo-beluvi.jpg" alt="Logo da Beluvi Pet" width="640" height="640">
+
+      <p class="sobrescrito">São Paulo · Enviamos para todo o Brasil</p>
+
+      <h1 class="hero-titulo">
+        O nome dele<br>
+        <span class="destaque-script">bordado</span> em cada detalhe.
+      </h1>
+
+      <p class="hero-sub">
+        Caminhas, plaquinhas, chaveiros e porta-guia feitos com o nome do seu pet.
+        Escreva o nome aqui do lado e veja a peça ficar pronta na sua frente.
+      </p>
+
+      <div class="hero-botoes">
+        <a class="botao botao-ouro" href="#personalizar">Escrever o nome do meu pet</a>
+        <a class="botao botao-linha" href="#kit">Ver o Kit Passeio</a>
+      </div>
+
+      <ul class="hero-emblemas">
+        <li><span class="emblema-selo"><svg viewBox="0 0 64 60"><use href="#e-coracao"></use></svg></span> Conforto de verdade</li>
+        <li><span class="emblema-selo"><svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg></span> Personalização exclusiva</li>
+        <li><span class="emblema-selo"><svg viewBox="0 0 64 64"><use href="#e-casa"></use></svg></span> Estilo para sua casa</li>
+        <li><span class="emblema-selo"><svg viewBox="0 0 64 64"><use href="#e-presente"></use></svg></span> Presentes incríveis</li>
+      </ul>
+    </div>
+
+    <!-- ===== PERSONALIZADOR ===== -->
+    <div class="perso" id="personalizar">
+      <div class="perso-brilho" aria-hidden="true"></div>
+
+      <p class="perso-titulo">Escreva o nome do seu pet</p>
+
+      <div class="perso-campo">
+        <input type="text" id="nome-pet" maxlength="14" value="Billy" placeholder="Ex: Mel"
+               autocomplete="off" spellcheck="false" aria-describedby="perso-dica">
+        <span class="perso-lapis" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg>
+        </span>
+      </div>
+      <p class="perso-dica" id="perso-dica">Até 14 letras · aparece na hora em todas as peças</p>
+
+      <div class="perso-palco">
+        <!-- ---- CAMINHA BELUVI ---- -->
+        <svg class="peca" viewBox="0 0 560 400" role="img" aria-labelledby="t-caminha">
+          <title id="t-caminha">Caminha Beluvi com o nome do pet bordado na frente</title>
+          <defs>
+            <pattern id="losangos" width="40" height="40" patternUnits="userSpaceOnUse">
+              <rect width="40" height="40" fill="var(--peca-clara)"/>
+              <path d="M0 0h20v20H0zM20 20h20v20H20z" fill="var(--peca-cor)" opacity=".5"/>
+              <path d="M20 0l20 20V0zM0 20l20 20H0z" fill="var(--peca-escura)" opacity=".55"/>
+            </pattern>
+          </defs>
+
+          <ellipse class="p-sombra" cx="280" cy="366" rx="236" ry="24"/>
+
+          <!-- encosto do fundo -->
+          <rect class="p-clara" x="88" y="66" width="384" height="126" rx="63"/>
+          <path class="p-vivo" d="M92 122a58 58 0 0 1 58-52h260a58 58 0 0 1 58 52"/>
+
+          <!-- laterais -->
+          <rect class="p-escura" x="48" y="118" width="116" height="196" rx="58"/>
+          <rect class="p-cor" x="54" y="124" width="104" height="184" rx="52"/>
+          <rect class="p-escura" x="396" y="118" width="116" height="196" rx="58"/>
+          <rect class="p-cor" x="402" y="124" width="104" height="184" rx="52"/>
+
+          <!-- almofada estampada -->
+          <rect class="p-escura" x="146" y="152" width="268" height="116" rx="30"/>
+          <rect x="152" y="157" width="256" height="106" rx="26" fill="url(#losangos)"/>
+
+          <!-- rolo da frente -->
+          <rect class="p-escura" x="56" y="246" width="448" height="112" rx="56"/>
+          <rect class="p-cor" x="60" y="240" width="440" height="110" rx="55"/>
+          <path class="p-vivo" d="M62 288a56 56 0 0 1 56-48h324a56 56 0 0 1 56 48"/>
+
+          <!-- nome bordado -->
+          <text class="p-nome" id="nome-caminha" data-base="54" x="212" y="308" text-anchor="middle">Billy</text>
+
+          <!-- ossinho aplicado -->
+          <g class="p-osso">
+            <rect x="330" y="284" width="46" height="18" rx="4"/>
+            <circle cx="333" cy="284" r="11"/><circle cx="333" cy="302" r="11"/>
+            <circle cx="373" cy="284" r="11"/><circle cx="373" cy="302" r="11"/>
+          </g>
+
+          <!-- etiqueta de couro -->
+          <g class="p-etiqueta" transform="translate(412 276)">
+            <rect width="72" height="32" rx="7"/>
+            <text x="36" y="15" text-anchor="middle">BELUVI</text>
+            <path d="M36 26l-4.4-4.2a3 3 0 1 1 4.4-3.4 3 3 0 1 1 4.4 3.4Z" class="p-etiqueta-coracao"/>
+          </g>
+        </svg>
+      </div>
+
+      <fieldset class="perso-cores">
+        <legend>Cor do tecido</legend>
+        <div class="cores" id="cores-perso">
+          <button type="button" class="cor ativo" style="--amostra:#18213F" data-cor="#18213F" aria-pressed="true"><span class="sr">Azul marinho</span></button>
+          <button type="button" class="cor" style="--amostra:#C9B096" data-cor="#C9B096" aria-pressed="false"><span class="sr">Bege</span></button>
+          <button type="button" class="cor" style="--amostra:#D9A7AD" data-cor="#D9A7AD" aria-pressed="false"><span class="sr">Rosa</span></button>
+          <button type="button" class="cor" style="--amostra:#8FA6C4" data-cor="#8FA6C4" aria-pressed="false"><span class="sr">Azul claro</span></button>
+          <button type="button" class="cor" style="--amostra:#93A38A" data-cor="#93A38A" aria-pressed="false"><span class="sr">Verde</span></button>
+          <button type="button" class="cor" style="--amostra:#2E2E2E" data-cor="#2E2E2E" aria-pressed="false"><span class="sr">Preto</span></button>
+        </div>
+        <p class="cor-nome" aria-live="polite">Azul marinho</p>
+      </fieldset>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAIXA ROLANTE ============ -->
+<div class="faixa" aria-hidden="true">
+  <div class="faixa-trilho" id="faixa-trilho"></div>
+</div>
+
+<!-- ============ TUDO COM O NOME DELE ============ -->
+<section class="secao secao-creme" id="pecas">
+  <div class="interno">
+    <header class="cabeca revelar">
+      <p class="sobrescrito sobrescrito-escuro">Cada nome, cada detalhe</p>
+      <h2 class="titulo">Tudo com o nome dele</h2>
+      <p class="linha-fina">
+        O nome que você escreveu lá em cima já está em todas as peças abaixo.
+        Troque o nome quando quiser — elas mudam junto.
+      </p>
+    </header>
+
+    <div class="grade-pecas">
+
+      <figure class="peca-mini revelar" style="--peca-cor:#C9B096">
+        <svg viewBox="0 0 320 200" role="img" aria-labelledby="t-plaquinha">
+          <title id="t-plaquinha">Plaquinha de identificação em formato de osso com o nome do pet</title>
+          <g class="p-cor">
+            <rect x="52.5" y="67.5" width="200" height="75"/>
+            <circle cx="52.5" cy="67.5" r="37.5"/><circle cx="52.5" cy="142.5" r="37.5"/>
+            <circle cx="252.5" cy="67.5" r="37.5"/><circle cx="252.5" cy="142.5" r="37.5"/>
+          </g>
+          <circle class="p-furo" cx="58" cy="52" r="9.5"/>
+          <text class="p-nome p-gravado" data-base="42" x="152" y="104" text-anchor="middle">Billy</text>
+          <g class="p-pata">
+            <ellipse cx="152" cy="130" rx="8.4" ry="6.8"/>
+            <ellipse cx="140" cy="121" rx="3.9" ry="4.8" transform="rotate(-18 140 121)"/>
+            <ellipse cx="164" cy="121" rx="3.9" ry="4.8" transform="rotate(18 164 121)"/>
+            <ellipse cx="146" cy="114" rx="3.7" ry="4.5"/>
+            <ellipse cx="158" cy="114" rx="3.7" ry="4.5"/>
+          </g>
+        </svg>
+        <figcaption>Plaquinha de identificação</figcaption>
+      </figure>
+
+      <figure class="peca-mini revelar" style="--peca-cor:#C9B096">
+        <svg viewBox="0 0 300 290" role="img" aria-labelledby="t-saquinho">
+          <title id="t-saquinho">Porta-saquinho com o nome do pet gravado</title>
+          <path class="p-metal" d="M150 14a32 32 0 0 1 32 32v28h-15V46a17 17 0 0 0-34 0v28h-15V46a32 32 0 0 1 32-32Z"/>
+          <rect class="p-escura" x="46" y="80" width="208" height="178" rx="64"/>
+          <rect class="p-cor" x="46" y="74" width="208" height="178" rx="64"/>
+          <path class="p-clara" d="M110 74h80a64 64 0 0 1 61 45 64 64 0 0 0-61-27h-80a64 64 0 0 0-61 27 64 64 0 0 1 61-45Z" opacity=".6"/>
+          <text class="p-nome p-gravado" data-base="34" x="150" y="142" text-anchor="middle">Billy</text>
+          <g class="p-pata">
+            <ellipse cx="150" cy="168" rx="8" ry="6.5"/>
+            <ellipse cx="139" cy="159" rx="3.7" ry="4.6" transform="rotate(-18 139 159)"/>
+            <ellipse cx="161" cy="159" rx="3.7" ry="4.6" transform="rotate(18 161 159)"/>
+            <ellipse cx="144" cy="152" rx="3.5" ry="4.3"/>
+            <ellipse cx="156" cy="152" rx="3.5" ry="4.3"/>
+          </g>
+          <ellipse class="p-vazio" cx="150" cy="200" rx="46" ry="17"/>
+          <path class="p-saco" d="M114 202c3 26 13 40 36 40s33-14 36-40c-23 8-49 8-72 0Z"/>
+          <path class="p-saco-dobra" d="M136 210c4 16 8 23 13 26M164 210c-4 16-8 23-13 26"/>
+        </svg>
+        <figcaption>Porta-saquinho</figcaption>
+      </figure>
+
+      <figure class="peca-mini revelar" style="--peca-cor:#C9B096">
+        <svg viewBox="0 0 320 290" role="img" aria-labelledby="t-chaveiro">
+          <title id="t-chaveiro">Chaveiro do tutor com medalhão, patinha e plaquinha com o nome</title>
+          <circle class="p-argola" cx="152" cy="38" r="30"/>
+          <rect class="p-metal" x="146" y="64" width="13" height="30" rx="6.5"/>
+          <rect class="p-metal" x="206" y="80" width="11" height="26" rx="5.5"/>
+          <rect class="p-metal" x="176" y="150" width="11" height="44" rx="5.5"/>
+          <circle class="p-metal" cx="100" cy="166" r="58"/>
+          <circle class="p-medalhao" cx="100" cy="166" r="48"/>
+          <g class="p-cao-medalhao">
+            <ellipse cx="72" cy="150" rx="12" ry="20" transform="rotate(-25 72 150)"/>
+            <ellipse cx="128" cy="150" rx="12" ry="20" transform="rotate(25 128 150)"/>
+            <ellipse cx="100" cy="170" rx="34" ry="32"/>
+          </g>
+          <ellipse class="p-focinho" cx="100" cy="188" rx="18" ry="13"/>
+          <circle class="p-olho" cx="88" cy="163" r="4.2"/><circle class="p-olho" cx="112" cy="163" r="4.2"/>
+          <ellipse class="p-olho" cx="100" cy="181" rx="6" ry="4.6"/>
+          <circle class="p-cor" cx="222" cy="124" r="32"/>
+          <g class="p-pata-disco">
+            <ellipse cx="222" cy="131" rx="9.5" ry="7.8"/>
+            <ellipse cx="209" cy="120" rx="4.4" ry="5.5" transform="rotate(-18 209 120)"/>
+            <ellipse cx="235" cy="120" rx="4.4" ry="5.5" transform="rotate(18 235 120)"/>
+            <ellipse cx="215" cy="112" rx="4.2" ry="5.1"/>
+            <ellipse cx="229" cy="112" rx="4.2" ry="5.1"/>
+          </g>
+          <g class="p-cor">
+            <rect x="157" y="205" width="136" height="34"/>
+            <circle cx="157" cy="205" r="17"/><circle cx="157" cy="239" r="17"/>
+            <circle cx="293" cy="205" r="17"/><circle cx="293" cy="239" r="17"/>
+          </g>
+          <text class="p-nome p-gravado" data-base="26" x="225" y="231" text-anchor="middle">Billy</text>
+        </svg>
+        <figcaption>Chaveiro do tutor</figcaption>
+      </figure>
+
+      <figure class="peca-mini revelar" style="--peca-cor:#4A3426">
+        <svg viewBox="0 0 280 330" role="img" aria-labelledby="t-portaguia">
+          <title id="t-portaguia">Porta-guia de parede em formato de cachorro com o nome gravado</title>
+          <g class="p-cor">
+            <ellipse cx="52" cy="198" rx="14" ry="29" transform="rotate(32 52 198)"/>
+            <ellipse cx="116" cy="196" rx="74" ry="64"/>
+            <ellipse cx="174" cy="164" rx="42" ry="54"/>
+            <rect x="158" y="196" width="34" height="68" rx="17"/>
+            <circle cx="178" cy="98" r="45"/>
+            <ellipse cx="141" cy="110" rx="16" ry="27" transform="rotate(-6 141 110)"/>
+            <ellipse cx="226" cy="112" rx="27" ry="19"/>
+            <ellipse cx="238" cy="104" rx="13" ry="10"/>
+          </g>
+          <text class="p-nome p-gravado-claro" data-base="28" x="108" y="202" text-anchor="middle">Billy</text>
+          <g class="p-pata-clara">
+            <ellipse cx="108" cy="234" rx="8.6" ry="7"/>
+            <ellipse cx="96" cy="224" rx="4" ry="5" transform="rotate(-18 96 224)"/>
+            <ellipse cx="120" cy="224" rx="4" ry="5" transform="rotate(18 120 224)"/>
+            <ellipse cx="102" cy="217" rx="3.8" ry="4.6"/>
+            <ellipse cx="114" cy="217" rx="3.8" ry="4.6"/>
+          </g>
+          <path class="p-gancho" d="M140 268v24a24 24 0 0 1-48 0"/>
+        </svg>
+        <figcaption>Porta-guia de parede</figcaption>
+      </figure>
+
+      <figure class="peca-mini revelar" style="--peca-cor:#18213F">
+        <svg viewBox="0 0 300 240" role="img" aria-labelledby="t-almofada">
+          <title id="t-almofada">Almofada combinando com o nome do pet bordado</title>
+          <ellipse class="p-sombra" cx="150" cy="212" rx="112" ry="16"/>
+          <path class="p-escura" d="M60 46h180a24 24 0 0 1 24 24v112a24 24 0 0 1-24 24H60a24 24 0 0 1-24-24V70a24 24 0 0 1 24-24Z"/>
+          <path class="p-cor" d="M62 42h176a22 22 0 0 1 22 22v108a22 22 0 0 1-22 22H62a22 22 0 0 1-22-22V64a22 22 0 0 1 22-22Z"/>
+          <path class="p-vivo" d="M52 64a18 18 0 0 1 18-18h160a18 18 0 0 1 18 18"/>
+          <text class="p-nome" data-base="46" x="150" y="140" text-anchor="middle">Billy</text>
+        </svg>
+        <figcaption>Almofada combinando</figcaption>
+      </figure>
+
+      <figure class="peca-mini revelar" style="--peca-cor:#8FA6C4">
+        <svg viewBox="0 0 300 240" role="img" aria-labelledby="t-bandana">
+          <title id="t-bandana">Bandana com o nome do pet bordado</title>
+          <path class="p-escura" d="M40 52h220l-98 156a26 26 0 0 1-24 0L40 52Z"/>
+          <path class="p-cor" d="M44 48h212l-94 150a24 24 0 0 1-24 0L44 48Z"/>
+          <path class="p-clara" d="M36 30h228a10 10 0 0 1 10 10v10a10 10 0 0 1-10 10H36a10 10 0 0 1-10-10V40a10 10 0 0 1 10-10Z"/>
+          <text class="p-nome p-nome-escuro" data-base="44" x="150" y="130" text-anchor="middle">Billy</text>
+        </svg>
+        <figcaption>Bandana</figcaption>
+      </figure>
+
+    </div>
+
+    <p class="nota revelar">
+      Os desenhos acima são ilustrações das peças. O acabamento real é bordado no tecido
+      e gravado a laser no metal e na madeira.
+    </p>
+  </div>
+</section>
+
+<!-- ============ A CAMINHA ============ -->
+<section class="secao secao-marinho" id="caminha">
+  <div class="interno">
+    <div class="duas-colunas">
+      <div class="coluna-foto revelar">
+        <div class="moldura">
+          <img src="assets/caminha-beluvi.jpg" alt="Caminha Beluvi azul marinho com o nome Billy bordado em branco na frente, um pug deitado dentro, almofada estampada e bandana combinando." width="900" height="891" loading="lazy">
+          <span class="moldura-selo"><svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg> Exemplo: Billy</span>
+        </div>
+      </div>
+
+      <div class="coluna-texto revelar">
+        <p class="sobrescrito">O carro-chefe</p>
+        <h2 class="titulo titulo-claro">A Caminha Beluvi</h2>
+        <p class="linha-fina linha-fina-clara">
+          Veludo encorpado, vivo contrastante costurado à mão e o nome do seu pet bordado
+          na frente com fio acetinado. Vem com almofada estampada, ossinho aplicado e a
+          etiqueta de couro da Beluvi.
+        </p>
+
+        <ul class="ficha">
+          <li><span>Tecido</span><b>Veludo premium</b></li>
+          <li><span>Enchimento</span><b>Fibra siliconada</b></li>
+          <li><span>Bordado</span><b>Fio acetinado, à mão</b></li>
+          <li><span>Capa</span><b>Removível, com zíper</b></li>
+          <li><span>Base</span><b>Antiderrapante</b></li>
+          <li><span>Acompanha</span><b>Almofada + ossinho</b></li>
+        </ul>
+
+        <div class="tamanhos">
+          <h3 class="sub-titulo">Escolha pelo porte</h3>
+          <div class="tabela-rolagem">
+            <table class="tabela">
+              <caption class="sr">Tamanhos da caminha por porte do pet</caption>
+              <thead>
+                <tr><th scope="col">Tamanho</th><th scope="col">Peso</th><th scope="col">Medida</th><th scope="col">Exemplos</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row"><span class="porte">P</span></th><td>até 7 kg</td><td>50 × 45 cm</td><td>Yorkshire, Shih Tzu</td></tr>
+                <tr><th scope="row"><span class="porte">M</span></th><td>7 a 15 kg</td><td>70 × 60 cm</td><td>Pug, Beagle, Shiba</td></tr>
+                <tr><th scope="row"><span class="porte">G</span></th><td>15 a 30 kg</td><td>90 × 75 cm</td><td>Border Collie, Boxer</td></tr>
+                <tr><th scope="row"><span class="porte">GG</span></th><td>acima de 30 kg</td><td>110 × 90 cm</td><td>Golden, Labrador</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="nota nota-clara">Na dúvida entre dois tamanhos, escolha o maior — pet gosta de esticar.</p>
+        </div>
+
+        <a class="botao botao-ouro" href="#pedido" data-pedir="Caminha Beluvi">Quero a Caminha Beluvi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KIT PASSEIO ============ -->
+<section class="secao secao-creme" id="kit">
+  <div class="interno">
+    <header class="cabeca cabeca-centro revelar">
+      <p class="sobrescrito sobrescrito-escuro">Passeios mais especiais</p>
+      <h2 class="titulo">Kit Passeio</h2>
+      <p class="linha-fina">
+        Quatro peças que resolvem o passeio inteiro, todas com o nome do seu pet.
+        Dá para levar o kit completo ou escolher só o que você precisa.
+      </p>
+    </header>
+
+    <div class="grade-kit">
+      <article class="item-kit revelar">
+        <span class="item-num">1</span>
+        <div class="item-foto"><img src="assets/kit-plaquinha.jpg" alt="Plaquinha de identificação em formato de osso, com o nome BILLY e uma patinha na frente e o telefone do tutor no verso." width="522" height="608" loading="lazy"></div>
+        <h3>Plaquinha de identificação</h3>
+        <p>O nome do seu pet na frente e os seus dados no verso. Se ele se perder, quem achar sabe para quem ligar.</p>
+        <button type="button" class="link-pedir" data-pedir="Plaquinha de identificação">Quero esta <span aria-hidden="true">→</span></button>
+      </article>
+
+      <article class="item-kit revelar">
+        <span class="item-num">2</span>
+        <div class="item-foto"><img src="assets/kit-porta-saquinho.jpg" alt="Porta-saquinho bege com o nome BILLY gravado, mosquetão para prender na guia e um saquinho saindo pela abertura." width="503" height="608" loading="lazy"></div>
+        <h3>Porta-saquinho</h3>
+        <p>Prende na guia com o mosquetão e nunca mais você sai sem saquinho. Leve, não faz barulho e cabe um rolo inteiro.</p>
+        <button type="button" class="link-pedir" data-pedir="Porta-saquinho">Quero este <span aria-hidden="true">→</span></button>
+      </article>
+
+      <article class="item-kit revelar">
+        <span class="item-num">3</span>
+        <div class="item-foto"><img src="assets/kit-chaveiro.jpg" alt="Chaveiro dourado com medalhão redondo com a foto do pet, um disco com patinha e uma plaquinha de osso com o nome BILLY." width="503" height="608" loading="lazy"></div>
+        <h3>Chaveiro do tutor</h3>
+        <p>A foto dele no seu molho de chaves. Medalhão com a foto, disco de patinha e plaquinha de osso com o nome.</p>
+        <button type="button" class="link-pedir" data-pedir="Chaveiro do tutor">Quero este <span aria-hidden="true">→</span></button>
+      </article>
+
+      <article class="item-kit revelar">
+        <span class="item-num">4</span>
+        <div class="item-foto"><img src="assets/kit-porta-guia.jpg" alt="Porta-guia de parede em madeira escura, recortado na silhueta de um cachorro sentado, com o nome BILLY gravado e um gancho para pendurar a guia." width="494" height="608" loading="lazy"></div>
+        <h3>Porta-guia de parede</h3>
+        <p>Recortado na silhueta de um cachorro, com o nome gravado. A guia deixa de ficar jogada e vira enfeite na entrada de casa.</p>
+        <button type="button" class="link-pedir" data-pedir="Porta-guia de parede">Quero este <span aria-hidden="true">→</span></button>
+      </article>
+    </div>
+
+    <div class="kit-chamada revelar">
+      <div class="kit-chamada-texto">
+        <h3 class="sub-titulo sub-titulo-grande">Monte o kit do seu pet</h3>
+        <p>As quatro peças juntas saem com desconto e chegam na mesma embalagem de presente.</p>
+      </div>
+      <a class="botao botao-marinho" href="#pedido" data-pedir="Kit Passeio completo">Montar o kit completo</a>
+    </div>
+
+    <div class="cores-marca revelar">
+      <h3 class="sub-titulo">Cores disponíveis</h3>
+      <ul class="lista-cores">
+        <li><span class="bolinha" style="--amostra:#C9B096"></span> Bege</li>
+        <li><span class="bolinha" style="--amostra:#D9A7AD"></span> Rosa</li>
+        <li><span class="bolinha" style="--amostra:#8FA6C4"></span> Azul</li>
+        <li><span class="bolinha" style="--amostra:#93A38A"></span> Verde</li>
+        <li><span class="bolinha" style="--amostra:#2E2E2E"></span> Preto</li>
+      </ul>
+      <p class="nota">Outras cores sob consulta — é só pedir no formulário.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="secao secao-marinho" id="como">
+  <div class="interno">
+    <header class="cabeca cabeca-centro revelar">
+      <p class="sobrescrito">Do pedido à sua porta</p>
+      <h2 class="titulo titulo-claro">Como funciona</h2>
+      <p class="linha-fina linha-fina-clara">Quatro passos, nessa ordem, e você acompanha cada um pelo WhatsApp.</p>
+    </header>
+
+    <ol class="passos">
+      <li class="passo revelar">
+        <span class="passo-emblema"><svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg></span>
+        <span class="passo-num">01</span>
+        <h3>Escolha a peça</h3>
+        <p>Caminha, Kit Passeio completo ou só a peça que falta. Tudo pode ser personalizado.</p>
+      </li>
+      <li class="passo revelar">
+        <span class="passo-emblema"><svg viewBox="0 0 64 60"><use href="#e-coracao"></use></svg></span>
+        <span class="passo-num">02</span>
+        <h3>Diga o nome e a cor</h3>
+        <p>Escreva o nome como você quer que apareça e escolha a cor. Mandamos uma prévia antes de produzir.</p>
+      </li>
+      <li class="passo revelar">
+        <span class="passo-emblema"><svg viewBox="0 0 64 64"><use href="#e-tesoura"></use></svg></span>
+        <span class="passo-num">03</span>
+        <h3>A gente faz à mão</h3>
+        <p>De 5 a 8 dias úteis. Cada peça é bordada ou gravada depois do seu pedido — nada fica pronto na prateleira.</p>
+      </li>
+      <li class="passo revelar">
+        <span class="passo-emblema"><svg viewBox="0 0 64 64"><use href="#e-presente"></use></svg></span>
+        <span class="passo-num">04</span>
+        <h3>Chega embalado para presente</h3>
+        <p>Enviamos foto da peça pronta antes de despachar. Embalagem especial inclusa, sem custo.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="secao secao-creme">
+  <div class="interno">
+    <header class="cabeca cabeca-centro revelar">
+      <p class="sobrescrito sobrescrito-escuro">Quem já recebeu</p>
+      <h2 class="titulo">Tutores Beluvi</h2>
+    </header>
+
+    <div class="grade-depoimentos">
+      <figure class="depoimento revelar">
+        <span class="aspas" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg></span>
+        <blockquote>Chegou melhor do que na foto. O veludo é grosso de verdade e o bordado do nome ficou impecável. Ele largou o sofá e só dorme na caminha agora.</blockquote>
+        <figcaption><span class="dep-tutor">Marina R.</span><span class="dep-pet">tutora do <b>Biscoito</b> · Beagle</span></figcaption>
+      </figure>
+      <figure class="depoimento revelar">
+        <span class="aspas" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg></span>
+        <blockquote>Comprei o Kit Passeio de presente para a minha irmã e ela chorou. A plaquinha com a foto no chaveiro foi o que mais pegou.</blockquote>
+        <figcaption><span class="dep-tutor">Eduardo P.</span><span class="dep-pet">tutor do <b>Zeus</b> · Labrador</span></figcaption>
+      </figure>
+      <figure class="depoimento revelar">
+        <span class="aspas" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg></span>
+        <blockquote>Lavei a capa várias vezes e não desbotou nem encolheu. O porta-guia na parede da entrada todo mundo pergunta onde comprei.</blockquote>
+        <figcaption><span class="dep-tutor">Carla M.</span><span class="dep-pet">tutora da <b>Nina</b> · Shih Tzu</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DÚVIDAS ============ -->
+<section class="secao secao-creme-escuro" id="duvidas">
+  <div class="interno interno-estreito">
+    <header class="cabeca cabeca-centro revelar">
+      <p class="sobrescrito sobrescrito-escuro">Perguntas frequentes</p>
+      <h2 class="titulo">Dúvidas antes de comprar</h2>
+    </header>
+
+    <div class="faq">
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Quanto tempo leva para chegar?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-interna"><p>De 5 a 8 dias úteis para produzir, mais o prazo do frete para a sua cidade. Como cada peça é feita depois do pedido, não trabalhamos com estoque pronto.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">A personalização custa a mais?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-interna"><p>Não. O nome já está no preço, seja bordado no tecido ou gravado no metal e na madeira. Até 14 letras. Acima disso a gente conversa sobre o layout antes de produzir.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Serve para gato também?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-interna"><p>Serve. A caminha tamanho P e a plaquinha são as mais pedidas para gato. O porta-guia também funciona como cabide de coleira e guia de passeio para gato.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Posso mandar a foto do meu pet para o chaveiro?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-interna"><p>Pode, e é assim que fazemos. Depois do pedido pedimos a foto pelo WhatsApp — de preferência de frente, com boa luz e o rosto bem visível. A gente recorta e ajusta antes de imprimir.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">E se o tamanho da caminha não servir?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-interna"><p>Você tem 7 dias para pedir a troca de tamanho, com a peça sem uso. O frete da primeira troca é por nossa conta.</p></div></div>
+      </div>
+      <div class="faq-item revelar">
+        <h3><button type="button" class="faq-botao" aria-expanded="false">Como faço o pagamento?<span class="faq-mais" aria-hidden="true"></span></button></h3>
+        <div class="faq-resposta"><div class="faq-interna"><p>Pix com desconto ou cartão parcelado. Enviamos o link de pagamento pelo WhatsApp depois de fechar a peça, a cor e o nome com você.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PEDIDO ============ -->
+<section class="secao secao-marinho" id="pedido">
+  <div class="patas-fundo patas-fundo-suave" id="patas-pedido" aria-hidden="true"></div>
+  <div class="interno">
+    <div class="duas-colunas duas-colunas-form">
+
+      <div class="coluna-texto revelar">
+        <p class="sobrescrito">Vamos fazer a dele</p>
+        <h2 class="titulo titulo-claro">Conte do seu pet</h2>
+        <p class="linha-fina linha-fina-clara">
+          Preencha e a gente volta com o valor fechado, o prazo e uma prévia de como o
+          nome vai ficar na peça. Respondemos em menos de um dia útil.
+        </p>
+
+        <ul class="contato-dados">
+          <li><span class="contato-rotulo">WhatsApp</span><a href="https://wa.me/5511000000000" target="_blank" rel="noopener">(11) 00000-0000</a></li>
+          <li><span class="contato-rotulo">E-mail</span><a href="mailto:contato@beluvipet.com.br">contato@beluvipet.com.br</a></li>
+          <li><span class="contato-rotulo">Instagram</span><a href="https://instagram.com/beluvipet" target="_blank" rel="noopener">@beluvipet</a></li>
+          <li><span class="contato-rotulo">Onde estamos</span><span>São Paulo · atendimento online</span></li>
+        </ul>
+      </div>
+
+      <!--
+        FORMULÁRIO — SEM BACKEND
+        Hoje o botão monta a mensagem no WhatsApp com tudo preenchido.
+        Para receber por e-mail, crie um formulário no Formspree (ou similar) e:
+          1. troque a tag por <form action="https://formspree.io/f/SEU_ID" method="POST">
+          2. apague o bloco "ENVIO PELO WHATSAPP" em script.js
+      -->
+      <form class="formulario revelar" id="formulario" novalidate>
+        <div class="campo">
+          <label for="f-nome">Seu nome</label>
+          <input type="text" id="f-nome" name="nome" required autocomplete="name">
+          <span class="erro" data-erro-de="f-nome"></span>
+        </div>
+
+        <div class="campo-duplo">
+          <div class="campo">
+            <label for="f-zap">WhatsApp</label>
+            <input type="tel" id="f-zap" name="whatsapp" required autocomplete="tel" placeholder="(11) 90000-0000">
+            <span class="erro" data-erro-de="f-zap"></span>
+          </div>
+          <div class="campo">
+            <label for="f-petnome">Nome do pet</label>
+            <input type="text" id="f-petnome" name="petnome" maxlength="14" placeholder="Billy">
+          </div>
+        </div>
+
+        <div class="campo-duplo">
+          <div class="campo">
+            <label for="f-produto">O que você quer</label>
+            <select id="f-produto" name="produto">
+              <option>Caminha Beluvi</option>
+              <option>Kit Passeio completo</option>
+              <option>Plaquinha de identificação</option>
+              <option>Porta-saquinho</option>
+              <option>Chaveiro do tutor</option>
+              <option>Porta-guia de parede</option>
+              <option>Almofada combinando</option>
+              <option>Bandana</option>
+              <option>Ainda não sei, quero ajuda</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="f-cor">Cor</label>
+            <select id="f-cor" name="cor">
+              <option>Azul marinho</option>
+              <option>Bege</option>
+              <option>Rosa</option>
+              <option>Azul</option>
+              <option>Verde</option>
+              <option>Preto</option>
+              <option>Outra cor (conto na mensagem)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="f-porte">Porte do pet</label>
+          <select id="f-porte" name="porte">
+            <option>P — até 7 kg</option>
+            <option>M — 7 a 15 kg</option>
+            <option>G — 15 a 30 kg</option>
+            <option>GG — acima de 30 kg</option>
+            <option>Não sei medir, me ajuda</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="f-msg">Conte um pouco sobre ele</label>
+          <textarea id="f-msg" name="mensagem" rows="4" required placeholder="Raça, se é presente, prazo que você precisa, alguma ideia que você tem…"></textarea>
+          <span class="erro" data-erro-de="f-msg"></span>
+        </div>
+
+        <button type="submit" class="botao botao-ouro botao-largo">Enviar meu pedido</button>
+        <p class="form-aviso" id="form-aviso" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="rodape">
+  <div class="interno rodape-grade">
+    <div class="rodape-marca">
+      <img class="rodape-logo" src="assets/logo-beluvi.jpg" alt="Logo da Beluvi Pet" width="640" height="640" loading="lazy">
+      <p class="rodape-lema">O luxo de amar nos detalhes.</p>
+      <p class="rodape-texto">Caminhas e acessórios personalizados, feitos um a um depois do seu pedido. Pets únicos, como o seu amor.</p>
+    </div>
+
+    <nav class="rodape-links" aria-label="Links do site">
+      <h2>O site</h2>
+      <a href="#personalizar">Personalizar</a>
+      <a href="#caminha">A Caminha</a>
+      <a href="#kit">Kit Passeio</a>
+      <a href="#como">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+
+    <div class="rodape-links">
+      <h2>Falar com a gente</h2>
+      <a href="https://wa.me/5511000000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:contato@beluvipet.com.br">contato@beluvipet.com.br</a>
+      <a href="https://instagram.com/beluvipet" target="_blank" rel="noopener">@beluvipet</a>
+    </div>
+  </div>
+
+  <div class="interno rodape-base">
+    <p>© <span id="ano">2026</span> Beluvi Pet · São Paulo</p>
+    <p class="rodape-patas" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg>
+      <svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg>
+      <svg viewBox="0 0 64 64"><use href="#e-patinha"></use></svg>
+    </p>
+  </div>
+</footer>
+
+<!-- Botão flutuante do WhatsApp — o número fica em script.js (WHATSAPP) -->
+<a class="zap" id="zap" href="https://wa.me/5511000000000" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8A13 13 0 1 0 16 3Zm7.5 18.4c-.3.9-1.8 1.7-2.5 1.8-.7.1-1.5.2-4.9-1.2-4.1-1.7-6.7-6-6.9-6.3-.2-.3-1.6-2.2-1.6-4.2 0-2 1-2.9 1.4-3.3.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7l1.2 3c.1.3.2.6 0 .9l-.5.7-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.6 2 2.5 1.4 1.2 2.5 1.6 2.8 1.8.3.2.5.1.7-.1l1-1.2c.3-.3.5-.2.8-.1l2.9 1.4c.3.2.6.3.7.4.1.3.1.9-.2 1.8Z"/></svg>
+  <span class="sr">Falar no WhatsApp</span>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
