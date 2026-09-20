@@ -1,0 +1,273 @@
+/* =========================================================
+   BELUVI PET — CSS da marca para a Nuvemshop
+
+   ONDE COLAR
+   No painel da Nuvemshop:
+   Loja online > Layout > Personalizar seu layout atual > Edição de CSS avançada
+   Cole tudo, salve e veja o resultado.
+
+   ANTES DE PUBLICAR
+   Em "Loja online > Layout", use "Criar rascunho" na seção "Teste em rascunho".
+   Assim você testa sem que seus clientes vejam.
+
+   PLANO
+   A edição de CSS avançada está disponível a partir do plano Impulso.
+
+   IMPORTANTE, LEIA
+   Escrevi isto sem acesso à sua loja, então trate como ponto de partida, não
+   como versão final. As partes 1 a 4 funcionam na maioria dos temas. As partes
+   5 e 6 dependem dos nomes de classe do tema que você escolher — se alguma não
+   pegar, me diga qual tema é que eu acerto os seletores.
+
+   COMO DESCOBRIR O NOME DE UMA CLASSE
+   Abra a loja no Chrome, clique com o botão direito no elemento e escolha
+   "Inspecionar". O nome aparece depois de class="..." no painel que abre.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. FONTES DA MARCA
+   As mesmas do site: Cormorant Garamond nos títulos, Jost no texto
+   e Parisienne nos detalhes em manuscrito.
+   --------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Parisienne&display=swap');
+
+
+/* ---------------------------------------------------------
+   2. PALETA
+   Tirada da logo e da foto da caminha. Mudando aqui, muda tudo abaixo.
+   --------------------------------------------------------- */
+:root {
+  --beluvi-marinho: #18213F;
+  --beluvi-marinho-escuro: #111931;
+  --beluvi-ouro: #C9A063;
+  --beluvi-ouro-claro: #E8CFA3;
+  --beluvi-ouro-escuro: #8F6B31;
+  --beluvi-creme: #F4ECE0;
+  --beluvi-creme-claro: #FCF8F2;
+  --beluvi-tinta: #291C14;
+}
+
+
+/* ---------------------------------------------------------
+   3. TEXTO E TÍTULOS
+   --------------------------------------------------------- */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif !important;
+  color: var(--beluvi-tinta);
+}
+
+body {
+  background-color: var(--beluvi-creme);
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0;
+  color: var(--beluvi-tinta);
+}
+
+/* rótulos pequenos em caixa alta, como no site */
+.breadcrumb,
+.product-price-compare,
+label {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+a { color: var(--beluvi-ouro-escuro); }
+a:hover { color: var(--beluvi-marinho); }
+
+
+/* ---------------------------------------------------------
+   4. BOTÕES
+   Cobre os nomes de classe mais comuns nos temas da Nuvemshop.
+   O botão principal fica dourado com texto escuro, como no site.
+   --------------------------------------------------------- */
+.btn,
+.btn-primary,
+.btn-default,
+button[type="submit"],
+input[type="submit"],
+.js-addtocart,
+.js-prod-submit-form {
+  font-family: 'Jost', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  padding: 15px 32px !important;
+  border: 1px solid transparent !important;
+  transition: transform .2s ease, background-color .2s ease !important;
+}
+
+.btn-primary,
+button[type="submit"],
+input[type="submit"],
+.js-addtocart {
+  background-color: var(--beluvi-ouro) !important;
+  color: var(--beluvi-tinta) !important;
+  box-shadow: 0 10px 26px rgba(201, 160, 99, .34);
+}
+
+.btn-primary:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.js-addtocart:hover {
+  background-color: var(--beluvi-ouro-claro) !important;
+  color: var(--beluvi-tinta) !important;
+  transform: translateY(-2px);
+}
+
+/* botão secundário: contorno, sem preenchimento */
+.btn-default {
+  background-color: transparent !important;
+  color: var(--beluvi-marinho) !important;
+  border-color: var(--beluvi-marinho) !important;
+}
+.btn-default:hover {
+  background-color: var(--beluvi-marinho) !important;
+  color: var(--beluvi-creme-claro) !important;
+}
+
+
+/* ---------------------------------------------------------
+   5. CABEÇALHO E RODAPÉ
+   Fundo marinho com o dourado da marca.
+   Se não pegar, é porque o seu tema usa outro nome de classe —
+   me mande o nome do tema que eu ajusto.
+   --------------------------------------------------------- */
+header,
+.header,
+.navbar,
+.js-head-main {
+  background-color: var(--beluvi-marinho) !important;
+  border-bottom: 1px solid rgba(201, 160, 99, .25) !important;
+}
+
+header a,
+.header a,
+.navbar a,
+.navbar .nav > li > a {
+  color: rgba(244, 236, 224, .88) !important;
+}
+
+header a:hover,
+.header a:hover,
+.navbar a:hover {
+  color: var(--beluvi-ouro-claro) !important;
+}
+
+footer,
+.footer {
+  background-color: #291C14 !important;
+  color: rgba(244, 236, 224, .76) !important;
+}
+
+footer a,
+.footer a { color: rgba(244, 236, 224, .76) !important; }
+footer a:hover,
+.footer a:hover { color: var(--beluvi-ouro) !important; }
+
+
+/* ---------------------------------------------------------
+   6. PRODUTOS
+   Cartão com borda discreta, foto que aproxima ao passar o mouse
+   e preço na fonte dos títulos.
+   --------------------------------------------------------- */
+.item,
+.product-item,
+.js-item-product {
+  background-color: var(--beluvi-creme-claro);
+  border: 1px solid rgba(74, 52, 38, .15);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.item:hover,
+.product-item:hover,
+.js-item-product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(24, 33, 63, .13);
+}
+
+.item-image img,
+.product-item img {
+  transition: transform .6s cubic-bezier(.2, .8, .3, 1);
+}
+
+.item:hover .item-image img,
+.product-item:hover img {
+  transform: scale(1.06);
+}
+
+.item-name,
+.product-item-name {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+}
+
+.item-price,
+.product-price,
+.js-price-display {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: var(--beluvi-marinho) !important;
+}
+
+
+/* ---------------------------------------------------------
+   7. DETALHES
+   --------------------------------------------------------- */
+/* campos de formulário combinando com o site */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select,
+textarea {
+  border: 1px solid rgba(74, 52, 38, .15) !important;
+  border-radius: 10px !important;
+  background-color: #FBF6EE !important;
+  padding: 13px 15px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--beluvi-ouro) !important;
+  outline: none !important;
+}
+
+/* faixa de aviso do topo, quando o tema tiver */
+.top-bar,
+.header-top {
+  background-color: #291C14 !important;
+  color: var(--beluvi-creme) !important;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+/* foco visível pelo teclado, para acessibilidade */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--beluvi-ouro) !important;
+  outline-offset: 3px !important;
+}
