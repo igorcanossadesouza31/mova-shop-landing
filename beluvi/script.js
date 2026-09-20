@@ -181,73 +181,6 @@
   });
 
   /* ---------------------------------------------------------
-     Personalizador: o nome em todas as peças
-     --------------------------------------------------------- */
-  var entradaNome = document.getElementById('nome-pet');
-  var textosNome = document.querySelectorAll('.p-nome');
-
-  function reducao(quantidade) {
-    if (quantidade <= 5) return 1;
-    if (quantidade <= 8) return 0.82;
-    if (quantidade <= 11) return 0.68;
-    return 0.56;
-  }
-
-  function aplicarNome(valor, animar) {
-    var limpo = valor.trim();
-    var texto = limpo || 'seu pet';
-    textosNome.forEach(function (el) {
-      var base = parseFloat(el.dataset.base) || 52;
-      el.textContent = texto;
-      el.style.fontSize = (base * reducao(texto.length)).toFixed(1) + 'px';
-      el.style.opacity = limpo ? '' : '.45';
-      if (animar && !semMovimento) {
-        el.classList.remove('bordando');
-        void el.getBoundingClientRect();
-        el.classList.add('bordando');
-      }
-    });
-  }
-
-  if (entradaNome) {
-    entradaNome.addEventListener('input', function () { aplicarNome(this.value, false); });
-    entradaNome.addEventListener('change', function () { aplicarNome(this.value, true); });
-    aplicarNome(entradaNome.value, false);
-  }
-
-  /* ---------------------------------------------------------
-     Cor do tecido — a linha do bordado acompanha o tom
-     --------------------------------------------------------- */
-  function claridade(hex) {
-    var n = parseInt(hex.replace('#', ''), 16);
-    var r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
-    return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  }
-
-  var perso = document.getElementById('perso');
-  var coresPerso = document.getElementById('cores-perso');
-
-  if (coresPerso && perso) {
-    var saidaCor = perso.querySelector('.cor-nome');
-    var botoesCor = coresPerso.querySelectorAll('.cor');
-
-    botoesCor.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        botoesCor.forEach(function (b) {
-          var eEste = b === btn;
-          b.classList.toggle('ativo', eEste);
-          b.setAttribute('aria-pressed', String(eEste));
-        });
-        var cor = btn.dataset.cor;
-        perso.style.setProperty('--peca-cor', cor);
-        perso.style.setProperty('--peca-linha', claridade(cor) > 0.6 ? '#3B2A1E' : '#F6EFE3');
-        if (saidaCor) saidaCor.textContent = btn.querySelector('.sr').textContent;
-        aplicarNome(entradaNome ? entradaNome.value : '', true);
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------
      Dúvidas (sanfona)
      --------------------------------------------------------- */
   var botoesFaq = document.querySelectorAll('.faq-botao');
@@ -282,7 +215,6 @@
      "Quero esta" leva a peça escolhida para o formulário
      --------------------------------------------------------- */
   var seletorProduto = document.getElementById('f-produto');
-  var campoPetNome = document.getElementById('f-petnome');
 
   document.querySelectorAll('[data-pedir]').forEach(function (gatilho) {
     gatilho.addEventListener('click', function () {
@@ -293,10 +225,6 @@
           if (op.text === escolhido) seletorProduto.value = op.value;
         });
       }
-      if (campoPetNome && entradaNome && entradaNome.value.trim() && !campoPetNome.value) {
-        campoPetNome.value = entradaNome.value.trim();
-      }
-
       document.getElementById('pedido').scrollIntoView({
         behavior: semMovimento ? 'auto' : 'smooth', block: 'start'
       });
