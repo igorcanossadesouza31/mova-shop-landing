@@ -11,6 +11,39 @@
   var EMAIL     = 'empresabeluvi@gmail.com';
   var INSTAGRAM = 'beluvipet';
 
+  /* --- LOJA NA NUVEMSHOP ---
+     Enquanto LOJA estiver vazio, os botões "Quero esta" continuam levando ao
+     formulário de pedido aqui do site. Assim que você colar o endereço da sua
+     loja abaixo, eles passam a abrir a Nuvemshop, onde ficam o carrinho e o
+     pagamento — e o formulário vira só um caminho alternativo.
+
+     LOJA: o endereço da sua loja, sem barra no final.
+           Ex: 'https://beluvi.lojavirtualnuvem.com.br'
+
+     PRODUTOS: o link de cada produto dentro da loja. Copie da barra de
+           endereços ao abrir o produto na sua Nuvemshop e cole só o final.
+           Ex: '/produtos/caminha-beluvi'
+           Deixe '' no que ainda não tiver cadastrado — esse botão continua
+           levando ao formulário, sem quebrar nada. */
+  var LOJA = '';
+
+  var PRODUTOS = {
+    'Caminha Beluvi':              '',
+    'Kit Passeio completo':        '',
+    'Plaquinha de identificação':  '',
+    'Porta-saquinho':              '',
+    'Chaveiro do tutor':           '',
+    'Porta-guia de parede':        '',
+    'Almofada combinando':         '',
+    'Bandana':                     ''
+  };
+
+  function linkDaLoja(produto) {
+    if (!LOJA) return '';
+    var caminho = PRODUTOS[produto];
+    return caminho ? LOJA + caminho : LOJA;
+  }
+
   document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
     a.href = 'https://wa.me/' + WHATSAPP;
   });
@@ -21,6 +54,15 @@
   document.querySelectorAll('a[href^="https://instagram.com/"]').forEach(function (a) {
     a.href = 'https://instagram.com/' + INSTAGRAM;
   });
+
+  if (LOJA) {
+    document.querySelectorAll('.menu-cta, .banner-botoes .botao-ouro').forEach(function (a) {
+      a.href = LOJA;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = a.classList.contains('menu-cta') ? 'Ir para a loja' : 'Comprar na loja';
+    });
+  }
 
   var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -219,6 +261,13 @@
   document.querySelectorAll('[data-pedir]').forEach(function (gatilho) {
     gatilho.addEventListener('click', function () {
       var escolhido = gatilho.dataset.pedir;
+
+      // com a loja configurada, o botão leva direto para a Nuvemshop
+      var destino = linkDaLoja(escolhido);
+      if (destino) {
+        window.open(destino, '_blank', 'noopener');
+        return;
+      }
 
       if (seletorProduto) {
         Array.prototype.forEach.call(seletorProduto.options, function (op) {

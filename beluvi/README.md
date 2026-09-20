@@ -48,6 +48,43 @@ var INSTAGRAM = 'beluvipet';
 Trocar ali atualiza de uma vez o botão flutuante, os links de contato, o rodapé e o
 envio do formulário.
 
+### Ligar o site à loja na Nuvemshop
+
+Logo abaixo do contato, no `script.js`, tem o bloco da loja:
+
+```js
+var LOJA = '';        // ex: 'https://beluvi.lojavirtualnuvem.com.br'
+
+var PRODUTOS = {
+  'Caminha Beluvi':              '',   // ex: '/produtos/caminha-beluvi'
+  'Kit Passeio completo':        '',
+  ...
+};
+```
+
+O site funciona nos dois estados, sem quebrar:
+
+- **`LOJA` vazio** (como está hoje): os botões "Quero esta" levam ao formulário de
+  pedido da própria página, que abre o WhatsApp com tudo preenchido.
+- **`LOJA` preenchido**: os botões passam a abrir a Nuvemshop numa aba nova, onde
+  ficam o carrinho e o pagamento. O botão do topo vira "Ir para a loja" e o do
+  banner vira "Comprar na loja". O formulário continua na página como caminho
+  alternativo para quem prefere falar antes de comprar.
+
+Produto sem link preenchido cai na página inicial da loja em vez de quebrar, então
+dá para ir cadastrando aos poucos.
+
+Para pegar o endereço de um produto: abra ele na sua Nuvemshop e copie da barra de
+endereços só o pedaço final, a partir de `/produtos/`.
+
+### Colocar o site inteiro dentro da Nuvemshop
+
+Isso é outro trabalho, não é subir estes arquivos. Os temas da Nuvemshop são feitos
+em Twig, com arquivos `.tpl` separados, e o acesso ao código-fonte por FTP só existe
+a partir do plano Impulso. Nos planos abaixo dele dá para mexer em CSS, mas não em
+HTML e JavaScript. A documentação oficial está em
+<https://docs.nuvemshop.com.br/help>.
+
 ### Preços
 
 Hoje todo produto mostra "Sob consulta". Para colocar o valor, procure no `index.html`
