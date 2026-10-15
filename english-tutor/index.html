@@ -16,9 +16,13 @@
       <label id="micLangWrap">Microfone: <select id="micLang"><option value="en-US">Inglês</option><option value="pt-BR">Português</option></select></label>
     </div>
   </header>
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" class="tab" id="tabChat" aria-selected="true">Chat</button>
+    <button type="button" role="tab" class="tab" id="tabWords" aria-selected="false">Palavras <span id="wordCount" class="count">0</span></button>
+  </div>
+  <section class="view" id="viewChat">
   <div class="lessons" id="lessons" role="group" aria-label="Aulas"></div>
   <div id="chat" aria-live="polite"></div>
-  <div id="words" hidden><strong>Palavras novas</strong> (toque para ouvir)<ul id="wordList"></ul></div>
   <div class="help">
     <button type="button" class="chip" data-send="HELP">Me ajuda</button>
     <button type="button" class="chip" data-send="DONT_UNDERSTAND">Não entendi</button>
@@ -29,6 +33,11 @@
     <input id="input" placeholder="Escreva em inglês (ou português)" autocomplete="off">
     <button type="submit" id="send">Enviar</button>
   </form>
+  </section>
+  <section class="view" id="viewWords" hidden>
+    <p id="wordsEmpty" class="empty">As palavras que a Teacher Ana ensinar vão aparecer aqui. Toque em uma palavra para ouvir.</p>
+    <ul id="wordList" class="wordgrid"></ul>
+  </section>
   <p id="status"></p>
 </div>
   <script src="app.js"></script>

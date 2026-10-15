@@ -64,12 +64,7 @@ function addTeacher(r) {
     m.append(h);
   }
   chat.append(m); scrollDown(); speak(r.reply_en);
-  for (const w of r.new_words || []) {
-    if (!w.en || seen.has(w.en.toLowerCase())) continue;
-    seen.add(w.en.toLowerCase());
-    const li = el("li"); const b = el("button", null, `${w.en} = ${w.pt}${w.pron ? " (" + w.pron + ")" : ""}`);
-    b.type = "button"; b.onclick = () => speak(w.en); li.append(b); $("wordList").append(li); $("words").hidden = false;
-  }
+  for (const w of r.new_words || []) addWord(w);
 }
 
 async function ask(text, userEl) {
@@ -91,6 +86,30 @@ async function ask(text, userEl) {
     setStatus("Não consegui responder: " + err.message);
   } finally { $("send").disabled = false; }
 }
+
+function addWord(w) {
+  if (!w.en || seen.has(w.en.toLowerCase())) return;
+  seen.add(w.en.toLowerCase());
+  const li = el("li", "word");
+  li.append(el("div", "en", w.en), el("div", null, w.pt));
+  if (w.pron) li.append(el("div", "pron", "Fala-se: " + w.pron));
+  const b = el("button", "chip", "Ouvir"); b.type = "button"; b.onclick = () => speak(w.en);
+  const row = el("div", "row"); row.append(b); li.append(row);
+  $("wordList").append(li);
+  $("wordsEmpty").hidden = true;
+  const c = $("wordCount"); c.textContent = seen.size;
+  if ($("viewWords").hidden) c.classList.add("new");
+}
+
+function showTab(name) {
+  const words = name === "words";
+  $("viewChat").hidden = words; $("viewWords").hidden = !words;
+  $("tabChat").setAttribute("aria-selected", String(!words));
+  $("tabWords").setAttribute("aria-selected", String(words));
+  if (words) $("wordCount").classList.remove("new"); else scrollDown();
+}
+$("tabChat").onclick = () => showTab("chat");
+$("tabWords").onclick = () => showTab("words");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
