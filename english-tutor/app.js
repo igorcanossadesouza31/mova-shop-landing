@@ -40,7 +40,7 @@ function addCorrection(m, c) {
   m.append(box);
 }
 
-function addTeacher(r) {
+function addTeacher(r, silent) {
   const m = el("div", "msg");
   const pt = el("div", "pt", r.reply_pt);
   const play = el("button", "chip", "Ouvir"); play.type = "button"; play.onclick = () => speak(r.reply_en);
@@ -63,7 +63,7 @@ function addTeacher(r) {
     }
     m.append(h);
   }
-  chat.append(m); scrollDown(); speak(r.reply_en);
+  chat.append(m); scrollDown(); if (!silent) speak(r.reply_en);
   for (const w of r.new_words || []) addWord(w);
 }
 
@@ -79,8 +79,11 @@ async function ask(text, userEl) {
     if (!res.ok) throw new Error(data.error || "Erro");
     const r = data.result;
     transcript.push({ who: "Teacher", text: data.raw });
-    if (userEl && !/^(HELP|DONT_UNDERSTAND|NEXT|LESSON:)/.test(text)) addCorrection(userEl, r.correction);
+    const showFix = userEl && !/^(HELP|DONT_UNDERSTAND|NEXT|LESSON:)/.test(text);
+    if (showFix) addCorrection(userEl, r.correction);
     addTeacher(r); setStatus("");
+    log.push({ u: userEl ? userEl.querySelector(".en").textContent : null, c: showFix ? r.correction : null, r });
+    save();
   } catch (err) {
     transcript.pop();
     setStatus("Não consegui responder: " + err.message);
@@ -111,6 +114,49 @@ function showTab(name) {
 $("tabChat").onclick = () => showTab("chat");
 $("tabWords").onclick = () => showTab("words");
 
+const KEY = "teacher-ana-v1";
+const log = []; // o que aparece na tela: {u, c, r}
+let currentLesson = null;
+
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify({ transcript, log, currentLesson })); } catch (_) {}
+}
+
+function markLesson() {
+  document.querySelectorAll(".lessons .chip").forEach((x) => x.classList.toggle("cur", x.textContent === currentLesson));
+}
+
+function restore() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (_) {}
+  if (!saved || !Array.isArray(saved.log) || !saved.log.length) return false;
+  transcript.push(...saved.transcript);
+  currentLesson = saved.currentLesson || null; markLesson();
+  for (const item of saved.log) {
+    log.push(item);
+    if (item.u) { const m = addUser(item.u); if (item.c) addCorrection(m, item.c); }
+    addTeacher(item.r, true);
+  }
+  setStatus("Continuando de onde você parou.");
+  return true;
+}
+
+let resetTimer = null;
+$("reset").onclick = () => {
+  const b = $("reset");
+  if (!resetTimer) {
+    b.textContent = "Apagar tudo?";
+    resetTimer = setTimeout(() => { resetTimer = null; b.textContent = "Recomeçar"; }, 3000);
+    return;
+  }
+  clearTimeout(resetTimer); resetTimer = null; b.textContent = "Recomeçar";
+  try { localStorage.removeItem(KEY); } catch (_) {}
+  transcript.length = 0; log.length = 0; seen.clear(); currentLesson = null; markLesson();
+  chat.textContent = ""; $("wordList").textContent = ""; $("wordsEmpty").hidden = false;
+  $("wordCount").textContent = "0"; showTab("chat");
+  ask("START", null);
+};
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const t = input.value.trim(); if (!t) return;
@@ -123,7 +169,7 @@ for (const name of LESSONS) {
   const b = el("button", "chip", name); b.type = "button";
   b.onclick = () => {
     document.querySelectorAll(".lessons .chip").forEach((x) => x.classList.toggle("cur", x === b));
-    ask("LESSON: " + name, addUser("Aula: " + name));
+    currentLesson = name; ask("LESSON: " + name, addUser("Aula: " + name));
   };
   $("lessons").append(b);
 }
@@ -147,4 +193,4 @@ micBtn.addEventListener("click", () => {
 });
 
 speechSynthesis?.getVoices();
-ask("START", null);
+if (!restore()) ask("START", null);
