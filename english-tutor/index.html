@@ -14,9 +14,14 @@
     <div class="opts">
       <label><input type="checkbox" id="slow" checked> Voz lenta</label>
       <button type="button" class="chip" id="reset">Recomeçar</button>
+      <button type="button" class="chip" id="syncBtn">Sincronizar</button>
       <label id="micLangWrap">Microfone: <select id="micLang"><option value="en-US">Inglês</option><option value="pt-BR">Português</option></select></label>
     </div>
   </header>
+  <form class="sync" id="syncPanel" hidden>
+    <label for="syncCode">Código secreto (mínimo 8 caracteres). Use o mesmo código em todos os seus aparelhos.</label>
+    <div class="row"><input id="syncCode" type="password" autocomplete="off" minlength="8" placeholder="Ex.: minha-aula-2026"><button type="submit" class="chip">Ativar</button><button type="button" class="chip" id="syncOff">Desativar</button></div>
+  </form>
   <div class="tabs" role="tablist">
     <button type="button" role="tab" class="tab" id="tabChat" aria-selected="true">Chat</button>
     <button type="button" role="tab" class="tab" id="tabWords" aria-selected="false">Palavras <span id="wordCount" class="count">0</span></button>

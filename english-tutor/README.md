@@ -12,3 +12,8 @@ node server.js
 Abra http://localhost:3000 no **Google Chrome** (necessário para o microfone).
 
 Requer Node 18+. Sem dependências. A chave fica só no servidor, nunca no navegador.
+
+## Continuar de onde parou e usar em vários aparelhos
+- O progresso (conversa, palavras e aula) fica salvo no navegador automaticamente.
+- Para usar em outro aparelho, toque em **Sincronizar** e digite o mesmo **código secreto** (mínimo 8 caracteres) em todos. Quem souber o código acessa o progresso, então escolha algo difícil de adivinhar.
+- O servidor guarda o progresso no Upstash Redis se `UPSTASH_REDIS_REST_URL` e `UPSTASH_REDIS_REST_TOKEN` estiverem definidos (grátis em upstash.com). Sem isso, usa um arquivo local, que o Render apaga a cada deploy.

@@ -118,17 +118,40 @@ const KEY = "teacher-ana-v1";
 const log = []; // o que aparece na tela: {u, c, r}
 let currentLesson = null;
 
+function fresher(a, b) { // devolve o estado com mais progresso; empate: o mais recente
+  const la = a && a.log ? a.log.length : 0, lb = b && b.log ? b.log.length : 0;
+  if (la !== lb) return la > lb ? a : b;
+  return (a && a.updatedAt || 0) >= (b && b.updatedAt || 0) ? a : b;
+}
+
+const CODE_KEY = "teacher-ana-code";
+let syncCode = null, cloudChain = Promise.resolve();
+try { syncCode = localStorage.getItem(CODE_KEY); } catch (_) {}
+
+function readLocal() {
+  try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch (_) { return null; }
+}
+
+function cloud(method, body) {
+  return fetch("/api/progress", {
+    method, headers: { "Content-Type": "application/json", "x-sync-code": syncCode },
+    body: body ? JSON.stringify(body) : undefined,
+  }).then((r) => r.json().then((j) => { if (!r.ok) throw new Error(j.error); return j; }));
+}
+
 function save() {
-  try { localStorage.setItem(KEY, JSON.stringify({ transcript, log, currentLesson })); } catch (_) {}
+  const state = { transcript, log, currentLesson, updatedAt: Date.now() };
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (_) {}
+  if (syncCode) { // uma gravação por vez
+    cloudChain = cloudChain.then(() => cloud("PUT", { state })).catch(() => setStatus("Não consegui sincronizar. O progresso fica só neste aparelho."));
+  }
 }
 
 function markLesson() {
   document.querySelectorAll(".lessons .chip").forEach((x) => x.classList.toggle("cur", x.textContent === currentLesson));
 }
 
-function restore() {
-  let saved = null;
-  try { saved = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (_) {}
+function restore(saved) {
   if (!saved || !Array.isArray(saved.log) || !saved.log.length) return false;
   transcript.push(...saved.transcript);
   currentLesson = saved.currentLesson || null; markLesson();
@@ -137,7 +160,7 @@ function restore() {
     if (item.u) { const m = addUser(item.u); if (item.c) addCorrection(m, item.c); }
     addTeacher(item.r, true);
   }
-  setStatus("Continuando de onde você parou.");
+  setStatus(syncCode ? "Continuando de onde você parou (sincronizado)." : "Continuando de onde você parou.");
   return true;
 }
 
@@ -151,6 +174,7 @@ $("reset").onclick = () => {
   }
   clearTimeout(resetTimer); resetTimer = null; b.textContent = "Recomeçar";
   try { localStorage.removeItem(KEY); } catch (_) {}
+  if (syncCode) cloudChain = cloudChain.then(() => cloud("DELETE")).catch(() => {});
   transcript.length = 0; log.length = 0; seen.clear(); currentLesson = null; markLesson();
   chat.textContent = ""; $("wordList").textContent = ""; $("wordsEmpty").hidden = false;
   $("wordCount").textContent = "0"; showTab("chat");
@@ -192,5 +216,25 @@ micBtn.addEventListener("click", () => {
   try { rec.start(); } catch (_) { setStatus("Não consegui abrir o microfone."); }
 });
 
-speechSynthesis?.getVoices();
-if (!restore()) ask("START", null);
+$("syncBtn").onclick = () => { $("syncPanel").hidden = !$("syncPanel").hidden; $("syncBtn").textContent = syncCode ? "Sincronizado" : "Sincronizar"; };
+if (syncCode) $("syncBtn").textContent = "Sincronizado";
+$("syncPanel").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const v = $("syncCode").value.trim();
+  if (v.length < 8) return setStatus("O código precisa ter pelo menos 8 caracteres.");
+  try { localStorage.setItem(CODE_KEY, v); } catch (_) {}
+  location.reload(); // recarrega e puxa o progresso deste código
+});
+$("syncOff").onclick = () => { try { localStorage.removeItem(CODE_KEY); } catch (_) {} location.reload(); };
+
+(async () => {
+  speechSynthesis?.getVoices();
+  let saved = readLocal();
+  if (syncCode) {
+    try {
+      const { state } = await cloud("GET");
+      if (state) saved = fresher(saved, state);
+    } catch (err) { setStatus("Não consegui sincronizar: " + err.message); }
+  }
+  if (!restore(saved)) ask("START", null);
+})();

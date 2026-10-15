@@ -62,3 +62,6 @@ button:disabled { opacity:.5; cursor:default; }
 button:focus-visible, input:focus-visible, select:focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
 #status { min-height:1.3em; font-size:.82rem; color:var(--muted); margin:0; }
 #mic:disabled { opacity:.5; cursor:not-allowed; }
+.sync { padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:var(--surface); font-size:.88rem; display:flex; flex-direction:column; gap:6px; flex-shrink:0; }
+.sync input { flex:1; min-width:0; padding:8px; font:inherit; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:8px; }
+.sync .row { margin-top:0; }

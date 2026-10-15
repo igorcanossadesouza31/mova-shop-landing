@@ -9,3 +9,9 @@ services:
     envVars:
       - key: ANTHROPIC_API_KEY
         sync: false   # o Render pede o valor na hora de criar; não fica no GitHub
+      # Opcional, mas necessário para o progresso sincronizado não ser apagado a cada deploy.
+      # Crie um banco grátis em upstash.com (Redis) e cole a URL REST e o token. Pode deixar em branco.
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false

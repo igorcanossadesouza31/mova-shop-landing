@@ -2,6 +2,7 @@
 // Uso: ANTHROPIC_API_KEY=sk-ant-... node server.js
 const http = require("http");
 const fs = require("fs");
+const crypto = require("crypto");
 const path = require("path");
 
 const PORT = process.env.PORT || 3000;
@@ -26,12 +27,52 @@ Reply with ONLY a JSON object, no markdown, no other text, exactly:
 {"reply_en":"...","reply_pt":"Portuguese translation of reply_en","teach_pt":"","hint_pt":"","example_answer":"","correction":{"has_errors":false,"original":"","corrected":"","explanation_pt":""},"new_words":[{"en":"","pt":"","pron":"how to pronounce, spelled with Portuguese letters"}]}
 new_words has at most 3 useful words from this turn.`;
 
+// Armazenamento do progresso. Com UPSTASH_REDIS_REST_URL/TOKEN fica salvo para sempre (grátis em upstash.com);
+// sem isso usa um arquivo local, que o Render apaga a cada novo deploy.
+const UP_URL = process.env.UPSTASH_REDIS_REST_URL;
+const UP_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+const FILE = path.join(__dirname, "progress-data.json");
+
+async function storeGet(key) {
+  if (UP_URL) {
+    const r = await fetch(`${UP_URL}/get/${key}`, { headers: { Authorization: `Bearer ${UP_TOKEN}` } });
+    const j = await r.json();
+    return j.result ? JSON.parse(j.result) : null;
+  }
+  try { return JSON.parse(fs.readFileSync(FILE, "utf8"))[key] || null; } catch (_) { return null; }
+}
+async function storeSet(key, value) {
+  if (UP_URL) {
+    await fetch(`${UP_URL}/set/${key}`, { method: "POST", headers: { Authorization: `Bearer ${UP_TOKEN}` }, body: JSON.stringify(value) });
+    return;
+  }
+  let all = {};
+  try { all = JSON.parse(fs.readFileSync(FILE, "utf8")); } catch (_) {}
+  all[key] = value;
+  fs.writeFileSync(FILE, JSON.stringify(all));
+}
+
+async function handleProgress(req, res) {
+  const send = (code, obj) => { res.writeHead(code, { "Content-Type": "application/json" }); res.end(JSON.stringify(obj)); };
+  const code = String(req.headers["x-sync-code"] || "");
+  if (code.length < 8) return send(400, { error: "O código precisa ter pelo menos 8 caracteres." });
+  const key = "ana:" + crypto.createHash("sha256").update(code).digest("hex");
+  try {
+    if (req.method === "GET") return send(200, { state: await storeGet(key) });
+    if (req.method === "DELETE") { await storeSet(key, null); return send(200, { ok: true }); }
+    const { state } = JSON.parse(await readBody(req));
+    if (!state || typeof state !== "object") throw new Error("estado inválido");
+    await storeSet(key, state);
+    send(200, { ok: true });
+  } catch (e) { send(500, { error: e.message }); }
+}
+
 const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript" };
 
 function readBody(req) {
   return new Promise((resolve, reject) => {
     let data = "";
-    req.on("data", (c) => { data += c; if (data.length > 1e5) req.destroy(); });
+    req.on("data", (c) => { data += c; if (data.length > 2e6) req.destroy(); });
     req.on("end", () => resolve(data));
     req.on("error", reject);
   });
@@ -76,6 +117,7 @@ async function handleChat(req, res) {
 }
 
 http.createServer((req, res) => {
+  if (req.url === "/api/progress") return handleProgress(req, res);
   if (req.method === "POST" && req.url === "/api/chat") return handleChat(req, res);
 
   const file = req.url === "/" ? "/index.html" : req.url.split("?")[0];
