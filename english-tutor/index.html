@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teacher Ana — Aprenda Inglês</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>👩‍🏫 Teacher Ana</h1>
+    <div class="opts">
+      <label>Voz lenta <input type="checkbox" id="slow" checked></label>
+      <label>Falar em: <select id="micLang">
+        <option value="en-US">Inglês 🇺🇸</option>
+        <option value="pt-BR">Português 🇧🇷</option>
+      </select></label>
+    </div>
+  </header>
+
+  <main id="chat" aria-live="polite"></main>
+
+  <section id="words" hidden>
+    <strong>📚 Palavras novas</strong>
+    <ul id="wordList"></ul>
+  </section>
+
+  <form id="form">
+    <button type="button" id="mic" title="Falar">🎤</button>
+    <input id="input" placeholder="Escreva em inglês (ou português)…" autocomplete="off">
+    <button type="submit" id="send">Enviar</button>
+  </form>
+  <p id="status"></p>
+
+  <script src="app.js"></script>
+</body>
+</html>
