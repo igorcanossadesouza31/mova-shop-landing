@@ -2,36 +2,35 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Teacher Ana — Aprenda Inglês</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Teacher Ana</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="app">
   <header>
-    <h1>👩‍🏫 Teacher Ana</h1>
+    <h1>Teacher Ana <small>inglês para iniciantes</small></h1>
     <div class="opts">
-      <label>Voz lenta <input type="checkbox" id="slow" checked></label>
-      <label>Falar em: <select id="micLang">
-        <option value="en-US">Inglês 🇺🇸</option>
-        <option value="pt-BR">Português 🇧🇷</option>
-      </select></label>
+      <label><input type="checkbox" id="slow" checked> Voz lenta</label>
+      <label id="micLangWrap">Microfone: <select id="micLang"><option value="en-US">Inglês</option><option value="pt-BR">Português</option></select></label>
     </div>
   </header>
-
-  <main id="chat" aria-live="polite"></main>
-
-  <section id="words" hidden>
-    <strong>📚 Palavras novas</strong>
-    <ul id="wordList"></ul>
-  </section>
-
+  <div class="lessons" id="lessons" role="group" aria-label="Aulas"></div>
+  <div id="chat" aria-live="polite"></div>
+  <div id="words" hidden><strong>Palavras novas</strong> (toque para ouvir)<ul id="wordList"></ul></div>
+  <div class="help">
+    <button type="button" class="chip" data-send="HELP">Me ajuda</button>
+    <button type="button" class="chip" data-send="DONT_UNDERSTAND">Não entendi</button>
+    <button type="button" class="chip" data-send="NEXT">Próxima</button>
+  </div>
   <form id="form">
-    <button type="button" id="mic" title="Falar">🎤</button>
-    <input id="input" placeholder="Escreva em inglês (ou português)…" autocomplete="off">
+    <button type="button" id="mic">Falar</button>
+    <input id="input" placeholder="Escreva em inglês (ou português)" autocomplete="off">
     <button type="submit" id="send">Enviar</button>
   </form>
   <p id="status"></p>
-
+</div>
   <script src="app.js"></script>
 </body>
 </html>

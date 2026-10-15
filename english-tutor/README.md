@@ -1,6 +1,6 @@
 # Teacher Ana — IA que ensina inglês
 
-Professora de inglês para iniciantes: conversa em inglês simples, traduz para português,
+Professora de inglês para iniciantes: dá aulas por tema, explica em português, corrige seus erros, mostra como responder, fala em voz alta e escuta você pelo microfone.
 corrige seus erros explicando o porquê, fala em voz alta e escuta você pelo microfone.
 
 ## Como rodar

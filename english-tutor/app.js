@@ -1,143 +1,131 @@
-const chat = document.getElementById("chat");
-const form = document.getElementById("form");
-const input = document.getElementById("input");
-const micBtn = document.getElementById("mic");
-const statusEl = document.getElementById("status");
-const wordsBox = document.getElementById("words");
-const wordList = document.getElementById("wordList");
 
-const history = []; // formato da API: {role, content}
-const seenWords = new Set();
 
-function setStatus(t) { statusEl.textContent = t || ""; }
+const $ = (id) => document.getElementById(id);
+const chat = $("chat"), form = $("form"), input = $("input"), micBtn = $("mic"), statusEl = $("status");
+const transcript = []; // {who:"Student"|"Teacher", text}
+const seen = new Set();
 
-// ---------- Voz da professora (texto → fala) ----------
+const setStatus = (t) => { statusEl.textContent = t || ""; };
+function el(tag, cls, text) { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+function scrollDown() { chat.scrollTop = chat.scrollHeight; }
+
 function speak(text) {
-  if (!("speechSynthesis" in window)) return setStatus("Seu navegador não fala. Use o Chrome.");
+  if (!("speechSynthesis" in window)) return setStatus("Este navegador não tem voz. Tente o Chrome ou Safari.");
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = "en-US";
-  u.rate = document.getElementById("slow").checked ? 0.7 : 1;
-  const voice = speechSynthesis.getVoices().find((v) => v.lang.startsWith("en-US"));
-  if (voice) u.voice = voice;
+  u.lang = "en-US"; u.rate = $("slow").checked ? 0.75 : 1;
+  const v = speechSynthesis.getVoices().find((x) => x.lang === "en-US");
+  if (v) u.voice = v;
   speechSynthesis.speak(u);
 }
 
-// ---------- Microfone (fala → texto) ----------
-const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-let rec = null, listening = false;
-if (!SR) { micBtn.disabled = true; micBtn.title = "Use o Google Chrome para falar"; }
-
-micBtn.addEventListener("click", () => {
-  if (!SR) return;
-  if (listening) return rec.stop();
-  rec = new SR();
-  rec.lang = document.getElementById("micLang").value;
-  rec.interimResults = true;
-  rec.onstart = () => { listening = true; micBtn.classList.add("on"); setStatus("Estou ouvindo… fale agora"); };
-  rec.onresult = (e) => { input.value = [...e.results].map((r) => r[0].transcript).join(" "); };
-  rec.onerror = (e) => setStatus("Erro no microfone: " + e.error);
-  rec.onend = () => {
-    listening = false; micBtn.classList.remove("on"); setStatus("");
-    if (input.value.trim()) form.requestSubmit();
-  };
-  rec.start();
-});
-
-// ---------- Renderização ----------
-function el(tag, cls, text) {
-  const n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (text != null) n.textContent = text;
-  return n;
-}
-
 function addUser(text) {
-  const m = el("div", "msg user");
-  m.append(el("div", "en", text));
-  chat.append(m);
-  chat.scrollTop = chat.scrollHeight;
-  return m;
+  const m = el("div", "msg user"); m.append(el("div", "en", text)); chat.append(m); scrollDown(); return m;
 }
 
-function addCorrection(userMsg, c) {
+function addCorrection(m, c) {
   if (!c) return;
-  const box = el("div", c.has_errors ? "fix err" : "fix");
+  const box = el("div", c.has_errors ? "card" : "card ok");
   if (c.has_errors) {
-    const l1 = el("div"); l1.append("❌ Você disse: ", Object.assign(el("s"), { textContent: c.original }));
-    const l2 = el("div"); l2.append("✅ Correto: ", Object.assign(el("b"), { textContent: c.corrected }));
-    const l3 = el("div", null, "💡 " + c.explanation_pt);
-    const play = el("button", null, "🔊 Ouvir correto");
-    play.onclick = () => speak(c.corrected);
-    box.append(l1, l2, l3, play);
+    box.append(el("div", "lbl", "Correção"));
+    const a = el("div"); a.append("Você disse: ", el("s", null, c.original)); 
+    const b = el("div"); b.append("Correto: ", el("b", null, c.corrected));
+    const why = el("div", null, c.explanation_pt);
+    const play = el("button", "chip", "Ouvir o correto"); play.type = "button"; play.onclick = () => speak(c.corrected);
+    const r = el("div", "row"); r.append(play);
+    box.append(a, b, why, r);
   } else {
-    box.textContent = "✅ Perfeito! " + (c.explanation_pt || "Sua frase está correta.");
+    box.append(el("div", "lbl", "Muito bem"), el("div", null, c.explanation_pt || "Sua frase está correta."));
   }
-  userMsg.append(box);
+  m.append(box);
 }
 
 function addTeacher(r) {
   const m = el("div", "msg");
-  m.append(el("div", "en", r.reply_en));
-  const pt = el("div", "pt", "🇧🇷 " + r.reply_pt);
-  m.append(pt);
-  const a = el("div", "actions");
-  const play = el("button", null, "🔊 Ouvir");
-  play.onclick = () => speak(r.reply_en);
-  const toggle = el("button", null, "Esconder tradução");
-  toggle.onclick = () => {
-    pt.hidden = !pt.hidden;
-    toggle.textContent = pt.hidden ? "Mostrar tradução" : "Esconder tradução";
-  };
-  a.append(play, toggle);
-  m.append(a);
-  chat.append(m);
-  chat.scrollTop = chat.scrollHeight;
-  speak(r.reply_en);
-
-  (r.new_words || []).forEach((w) => {
-    if (seenWords.has(w.en.toLowerCase())) return;
-    seenWords.add(w.en.toLowerCase());
-    const li = el("li", null, `${w.en} = ${w.pt}${w.ipa_pt ? " (" + w.ipa_pt + ")" : ""}`);
-    li.style.cursor = "pointer";
-    li.onclick = () => speak(w.en);
-    wordList.append(li);
-    wordsBox.hidden = false;
-  });
+  const pt = el("div", "pt", r.reply_pt);
+  const play = el("button", "chip", "Ouvir"); play.type = "button"; play.onclick = () => speak(r.reply_en);
+  const tog = el("button", "chip", "Esconder tradução"); tog.type = "button";
+  tog.onclick = () => { pt.hidden = !pt.hidden; tog.textContent = pt.hidden ? "Mostrar tradução" : "Esconder tradução"; };
+  const row = el("div", "row"); row.append(play, tog);
+  m.append(el("div", "en", r.reply_en), pt, row);
+  if (r.teach_pt) {
+    const t = el("div", "teach"); t.append(el("div", "lbl", "Aprenda"), el("div", null, r.teach_pt)); m.append(t);
+  }
+  if (r.hint_pt || r.example_answer) {
+    const h = el("div", "hint"); h.append(el("div", "lbl", "Como responder"));
+    if (r.hint_pt) h.append(el("div", null, r.hint_pt));
+    if (r.example_answer) {
+      h.append(el("div", "en", r.example_answer));
+      const hear = el("button", "chip", "Ouvir"); hear.type = "button"; hear.onclick = () => speak(r.example_answer);
+      const use = el("button", "chip", "Usar esta resposta"); use.type = "button";
+      use.onclick = () => { input.value = r.example_answer; input.focus(); };
+      const hr = el("div", "row"); hr.append(hear, use); h.append(hr);
+    }
+    m.append(h);
+  }
+  chat.append(m); scrollDown(); speak(r.reply_en);
+  for (const w of r.new_words || []) {
+    if (!w.en || seen.has(w.en.toLowerCase())) continue;
+    seen.add(w.en.toLowerCase());
+    const li = el("li"); const b = el("button", null, `${w.en} = ${w.pt}${w.pron ? " (" + w.pron + ")" : ""}`);
+    b.type = "button"; b.onclick = () => speak(w.en); li.append(b); $("wordList").append(li); $("words").hidden = false;
+  }
 }
 
-// ---------- Conversa com a IA ----------
-async function ask(content, userMsgEl) {
-  history.push({ role: "user", content });
-  setStatus("Teacher Ana está pensando…");
-  document.getElementById("send").disabled = true;
+async function ask(text, userEl) {
+  transcript.push({ who: "Student", text });
+  const messages = transcript.map((t) => ({ role: t.who === "Student" ? "user" : "assistant", content: t.text }));
+  $("send").disabled = true; setStatus("Teacher Ana está pensando…");
   try {
     const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: history }),
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages }),
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
-    history.push({ role: "assistant", content: data.raw });
-    if (userMsgEl) addCorrection(userMsgEl, data.result.correction);
-    addTeacher(data.result);
-    setStatus("");
-  } catch (e) {
-    history.pop();
-    setStatus("⚠️ " + e.message);
-  } finally {
-    document.getElementById("send").disabled = false;
-  }
+    if (!res.ok) throw new Error(data.error || "Erro");
+    const r = data.result;
+    transcript.push({ who: "Teacher", text: data.raw });
+    if (userEl && !/^(HELP|DONT_UNDERSTAND|NEXT|LESSON:)/.test(text)) addCorrection(userEl, r.correction);
+    addTeacher(r); setStatus("");
+  } catch (err) {
+    transcript.pop();
+    setStatus("Não consegui responder: " + err.message);
+  } finally { $("send").disabled = false; }
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = "";
-  ask(text, addUser(text));
+  const t = input.value.trim(); if (!t) return;
+  input.value = ""; ask(t, addUser(t));
 });
 
-speechSynthesis?.getVoices(); // pré-carrega vozes
-ask("START");
+const LESSONS = ["Cumprimentos", "Apresentação", "Números", "Cores", "Família", "Comida", "Verbo to be", "No restaurante", "Viagem"];
+const LABELS = { HELP: "Me ajuda", DONT_UNDERSTAND: "Não entendi", NEXT: "Próxima" };
+for (const name of LESSONS) {
+  const b = el("button", "chip", name); b.type = "button";
+  b.onclick = () => {
+    document.querySelectorAll(".lessons .chip").forEach((x) => x.classList.toggle("cur", x === b));
+    ask("LESSON: " + name, addUser("Aula: " + name));
+  };
+  $("lessons").append(b);
+}
+document.querySelectorAll("[data-send]").forEach((b) => {
+  b.onclick = () => ask(b.dataset.send, addUser(LABELS[b.dataset.send]));
+});
+
+// Microfone (Chrome pede permissão na primeira vez)
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null, on = false;
+if (!SR) { micBtn.hidden = true; $("micLangWrap").hidden = true; }
+micBtn.addEventListener("click", () => {
+  if (on) return rec.stop();
+  rec = new SR(); rec.lang = $("micLang").value; rec.interimResults = true;
+  rec.onstart = () => { on = true; micBtn.classList.add("on"); micBtn.textContent = "Ouvindo…"; };
+  rec.onresult = (e) => { input.value = [...e.results].map((r) => r[0].transcript).join(" "); };
+  rec.onerror = (e) => setStatus(e.error === "not-allowed" || e.error === "service-not-allowed"
+    ? "O microfone está bloqueado. Clique em Permitir quando o Chrome perguntar (cadeado na barra de endereço)." : "Erro no microfone: " + e.error);
+  rec.onend = () => { on = false; micBtn.classList.remove("on"); micBtn.textContent = "Falar"; if (input.value.trim()) form.requestSubmit(); };
+  try { rec.start(); } catch (_) { setStatus("Não consegui abrir o microfone."); }
+});
+
+speechSynthesis?.getVoices();
+ask("START", null);
