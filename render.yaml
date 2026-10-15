@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: teacher-ana
+    runtime: node
+    plan: free
+    rootDir: english-tutor
+    buildCommand: echo "sem dependências"
+    startCommand: node server.js
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false   # o Render pede o valor na hora de criar; não fica no GitHub
